@@ -1,7 +1,7 @@
 ---
 title       : Introduction to R
 subtitle    : A primer
-author      : Antonio Augusto Franco Garcia, Gabriel R. A. Margarido
+author      : Gabriel R. A. Margarido, Antonio Augusto Franco Garcia
 job         : Department of Genetics, ESALQ/USP
 framework   : io2012        # {io2012, html5slides, shower, dzslides, ...}
 highlighter : highlight.js  # {highlight.js, prettify, highlight}
