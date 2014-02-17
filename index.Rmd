@@ -8,6 +8,9 @@ highlighter : highlight.js  # {highlight.js, prettify, highlight}
 hitheme     : tomorrow      # 
 widgets     : [mathjax]            # {mathjax, quiz, bootstrap}
 mode        : selfcontained # {standalone, draft}
+github:
+  user: augusto-garcia
+  repo: R-Introduction
 ---
 
 ## Outline
@@ -28,12 +31,6 @@ mode        : selfcontained # {standalone, draft}
 --- .class #id 
 
 ## R Learning Curve
-
-![Learning](/home/augusto/Dropbox/Talks/2014\ USP\ Ribeirao\ Preto/augusto/figures/learning-curve.jpg)
-
----
-
-## Teste, caramba
 
 ![Learn](http://dl.dropboxusercontent.com/u/1968009/figures/learning-curve.jpg)
 
@@ -67,27 +64,11 @@ mode        : selfcontained # {standalone, draft}
 
 http://www.foastat.org/
 
-![FOAS](/home/augusto/Dropbox/Talks/2014\ USP\ Ribeirao\ Preto/augusto/figures/FOAS.jpg)
-
----
-
-## But there is more 2!
-
-http://www.foastat.org/
-
-![FOAS2](http://dl.dropboxusercontent.com/u/1968009/figures/FOAS.jpg)
+![FOAS](http://dl.dropboxusercontent.com/u/1968009/figures/FOAS.jpg)
 
 ---
 
 ## ... and more!
-
-http://yihui.name/knitr/
-
-![knitr](/home/augusto/Dropbox/Talks/2014\ USP\ Ribeirao\ Preto/augusto/figures/knitrBook.jpg)
-
----
-
-## ... and more 2!
 
 http://yihui.name/knitr/
 
@@ -224,15 +205,7 @@ help.search("histogram")
 
 http://www.rseek.org/
 
-![rseek](/home/augusto/Dropbox/Talks/2014\ USP\ Ribeirao\ Preto/augusto/figures/RSeek.jpg)
-
----
-
-## RSeek2
-
-http://www.rseek.org/
-
-![rseek2](http://dl.dropboxusercontent.com/u/1968009/figures/RSeek.jpg)
+![rseek](http://dl.dropboxusercontent.com/u/1968009/figures/RSeek.jpg)
 
 ---
 
