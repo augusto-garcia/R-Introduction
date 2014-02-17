@@ -33,6 +33,12 @@ mode        : selfcontained # {standalone, draft}
 
 ---
 
+## Teste, caramba
+
+![Learn](http://dl.dropboxusercontent.com/u/1968009/figures/learning-curve.jpg)
+
+---
+
 ## Few concepts can make a big difference
 
 <iframe width="560" height="315" src="http://www.youtube.com/embed/5pidokakU4I" frameborder="0" allowfullscreen></iframe>
@@ -65,11 +71,27 @@ http://www.foastat.org/
 
 ---
 
+## But there is more 2!
+
+http://www.foastat.org/
+
+![FOAS2](http://dl.dropboxusercontent.com/u/1968009/figures/FOAS.jpg)
+
+---
+
 ## ... and more!
 
 http://yihui.name/knitr/
 
 ![knitr](/home/augusto/Dropbox/Talks/2014\ USP\ Ribeirao\ Preto/augusto/figures/knitrBook.jpg)
+
+---
+
+## ... and more 2!
+
+http://yihui.name/knitr/
+
+![knitr](http://dl.dropboxusercontent.com/u/1968009/figures/knitrBook.jpg)
 
 ---
 
@@ -203,6 +225,14 @@ help.search("histogram")
 http://www.rseek.org/
 
 ![rseek](/home/augusto/Dropbox/Talks/2014\ USP\ Ribeirao\ Preto/augusto/figures/RSeek.jpg)
+
+---
+
+## RSeek2
+
+http://www.rseek.org/
+
+![rseek2](http://dl.dropboxusercontent.com/u/1968009/figures/RSeek.jpg)
 
 ---
 
