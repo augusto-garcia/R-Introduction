@@ -1,0 +1,2679 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Introduction to R</title>
+  <meta charset="utf-8">
+  <meta name="description" content="Introduction to R">
+  <meta name="author" content="Antonio Augusto Franco Garcia, Gabriel R. A. Margarido">
+  <meta name="generator" content="slidify" />
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta http-equiv="X-UA-Compatible" content="chrome=1">
+  <link rel="stylesheet" href="libraries/frameworks/io2012/css/default.css" media="all" >
+  <link rel="stylesheet" href="libraries/frameworks/io2012/css/phone.css" 
+    media="only screen and (max-device-width: 480px)" >
+  <link rel="stylesheet" href="libraries/frameworks/io2012/css/slidify.css" >
+  <link rel="stylesheet" href="libraries/highlighters/highlight.js/css/tomorrow.css" />
+  <base target="_blank"> <!-- This amazingness opens all links in a new tab. -->  <link rel=stylesheet href="./assets/css/ribbons.css"></link>
+
+  
+  <!-- Grab CDN jQuery, fall back to local if offline -->
+  <script src="http://ajax.aspnetcdn.com/ajax/jQuery/jquery-1.7.min.js"></script>
+  <script>window.jQuery || document.write('<script src="libraries/widgets/quiz/js/jquery.js"><\/script>')</script> 
+  <script data-main="libraries/frameworks/io2012/js/slides" 
+    src="libraries/frameworks/io2012/js/require-1.0.8.min.js">
+  </script>
+  
+  
+
+</head>
+<body style="opacity: 0">
+  <slides class="layout-widescreen">
+    
+    <!-- LOGO SLIDE -->
+        <slide class="title-slide segue nobackground">
+  <hgroup class="auto-fadein">
+    <h1>Introduction to R</h1>
+    <h2>A primer</h2>
+    <p>Antonio Augusto Franco Garcia, Gabriel R. A. Margarido<br/>Department of Genetics, ESALQ/USP</p>
+  </hgroup>
+  <article></article>  
+</slide>
+    
+
+    <!-- SLIDES -->
+    <slide class="" id="slide-1" style="background:;">
+  <hgroup>
+    <h2>Outline</h2>
+  </hgroup>
+  <article data-timings="">
+    <ol>
+<li>Introduction</li>
+<li>Basic Syntax</li>
+<li>Object Types</li>
+<li>Graphics</li>
+<li><p>Programming</p>
+
+<p>Antonio Augusto F. Garcia</p>
+
+<p><a href="http://about.me/augusto.garcia">http://about.me/augusto.garcia</a></p>
+
+<p><a href="mailto:augusto.garcia@usp.br">augusto.garcia@usp.br</a></p></li>
+</ol>
+
+  </article>
+  <!-- Presenter Notes -->
+</slide>
+
+<slide class="class" id="id" style="background:;">
+  <hgroup>
+    <h2>R Learning Curve</h2>
+  </hgroup>
+  <article data-timings="">
+    <p><img src="/home/augusto/Dropbox/Talks/2014%20USP%20Ribeirao%20Preto/augusto/figures/learning-curve.jpg" alt="Learning"></p>
+
+  </article>
+  <!-- Presenter Notes -->
+</slide>
+
+<slide class="" id="slide-3" style="background:;">
+  <hgroup>
+    <h2>Few concepts can make a big difference</h2>
+  </hgroup>
+  <article data-timings="">
+    <iframe width="560" height="315" src="http://www.youtube.com/embed/5pidokakU4I" frameborder="0" allowfullscreen></iframe>
+
+  </article>
+  <!-- Presenter Notes -->
+</slide>
+
+<slide class="" id="slide-4" style="background:;">
+  <hgroup>
+    <h2>R</h2>
+  </hgroup>
+  <article data-timings="">
+    <ul>
+<li>Statistics</li>
+<li>Modeling</li>
+<li>Graphics</li>
+<li>Programming language</li>
+<li>Free</li>
+<li>Open Source</li>
+<li>Extensible</li>
+<li>DATA</li>
+<li><p>&quot;Lingua franca&quot; of Statistics (Bioinformatics?)</p>
+
+<p><a href="http://www.r-project.org">R Project:</a> <a href="http://www.r-project.org">http://www.r-project.org</a></p>
+
+<p><a href="http://www.rstudio.com">RStudio:</a> <a href="http://www.rstudio.com">http://www.rstudio.com</a></p></li>
+</ul>
+
+  </article>
+  <!-- Presenter Notes -->
+</slide>
+
+<slide class="" id="slide-5" style="background:;">
+  <hgroup>
+    <h2>But there is more!</h2>
+  </hgroup>
+  <article data-timings="">
+    <p><a href="http://www.foastat.org/">http://www.foastat.org/</a></p>
+
+<p><img src="/home/augusto/Dropbox/Talks/2014%20USP%20Ribeirao%20Preto/augusto/figures/FOAS.jpg" alt="FOAS"></p>
+
+  </article>
+  <!-- Presenter Notes -->
+</slide>
+
+<slide class="" id="slide-6" style="background:;">
+  <hgroup>
+    <h2>... and more!</h2>
+  </hgroup>
+  <article data-timings="">
+    <p><a href="http://yihui.name/knitr/">http://yihui.name/knitr/</a></p>
+
+<p><img src="/home/augusto/Dropbox/Talks/2014%20USP%20Ribeirao%20Preto/augusto/figures/knitrBook.jpg" alt="knitr"></p>
+
+  </article>
+  <!-- Presenter Notes -->
+</slide>
+
+<slide class="" id="slide-7" style="background:;">
+  <hgroup>
+    <h2>... and even more!</h2>
+  </hgroup>
+  <article data-timings="">
+    <p>These very slides were produced using an R package: <a href="http://slidify.org/">slidify</a></p>
+
+<iframe width="420" height="315" src="http://www.youtube.com/embed/I95GOmLc7TA" frameborder="0" allowfullscreen></iframe>
+
+  </article>
+  <!-- Presenter Notes -->
+</slide>
+
+<slide class="" id="slide-8" style="background:;">
+  <hgroup>
+    <h3>Exercise</h3>
+  </hgroup>
+  <article data-timings="">
+    <ol>
+<li>Install <a href="http://www.r-project.org">R</a></li>
+<li>Install <a href="http://www.rstudio.com">RStudio</a></li>
+<li>Take a look on the interface, trying to see where you are</li>
+<li><p>Use R as a calculator:</p>
+
+<pre><code class="r">10
+</code></pre>
+
+<pre><code>## [1] 10
+</code></pre>
+
+<pre><code class="r">1 + 3
+</code></pre>
+
+<pre><code>## [1] 4
+</code></pre></li>
+</ol>
+
+  </article>
+  <!-- Presenter Notes -->
+</slide>
+
+<slide class="" id="slide-9" style="background:;">
+  <article data-timings="">
+    <pre><code class="r">   4/3
+</code></pre>
+
+<pre><code>   ## [1] 1.333
+</code></pre>
+
+<pre><code class="r">   4%%3  # modulo operator
+</code></pre>
+
+<pre><code>   ## [1] 1
+</code></pre>
+
+  </article>
+  <!-- Presenter Notes -->
+</slide>
+
+<slide class="" id="slide-10" style="background:;">
+  <hgroup>
+    <h2>You can write reports on R</h2>
+  </hgroup>
+  <article data-timings="">
+    <pre><code>Syntax: straightforward
+</code></pre>
+
+<h3>Exercise</h3>
+
+<ol>
+<li>Download the file <a href="www.google.com">report</a>. It uses
+   <a href="http://www.rstudio.com/ide/docs/r_markdown">R Markdown</a>
+   syntax.</li>
+<li>Open it on RStudio</li>
+<li>Take a look on it, finding headers, lists (numbered, or items), and
+R chunks</li>
+<li>Try to add a few comments and R chunks</li>
+<li>Compile it to produce an html report</li>
+<li>(This is making usage of the amazing package <a href="http://yihui.name/knitr/">knitr</a>)</li>
+<li>Use it for taking notes during this course</li>
+</ol>
+
+  </article>
+  <!-- Presenter Notes -->
+</slide>
+
+<slide class="" id="slide-11" style="background:;">
+  <hgroup>
+    <h2>For reproducibility:</h2>
+  </hgroup>
+  <article data-timings="">
+    <pre><code class="r">sessionInfo()
+</code></pre>
+
+<pre><code>## R version 2.15.2 (2012-10-26)
+## Platform: x86_64-pc-linux-gnu (64-bit)
+## 
+## locale:
+##  [1] LC_CTYPE=pt_BR.UTF-8       LC_NUMERIC=C              
+##  [3] LC_TIME=pt_BR.UTF-8        LC_COLLATE=pt_BR.UTF-8    
+##  [5] LC_MONETARY=pt_BR.UTF-8    LC_MESSAGES=pt_BR.UTF-8   
+##  [7] LC_PAPER=C                 LC_NAME=C                 
+##  [9] LC_ADDRESS=C               LC_TELEPHONE=C            
+## [11] LC_MEASUREMENT=pt_BR.UTF-8 LC_IDENTIFICATION=C       
+## 
+## attached base packages:
+## [1] parallel  graphics  grDevices utils     datasets  stats     methods  
+## [8] base     
+## 
+## other attached packages:
+##  [1] sos_1.3-8          R2G2_1.0-2         qtl_1.30-4        
+##  [4] plyr_1.8           fortunes_1.5-2     brew_1.0-6        
+##  [7] BLR_1.3            SuppDists_1.1-9.1  slidify_0.4       
+## [10] RColorBrewer_1.0-5 knitr_1.5          ggplot2_0.9.3.1   
+## 
+## loaded via a namespace (and not attached):
+##  [1] codetools_0.2-8  colorspace_1.2-4 compiler_2.15.2  dichromat_2.0-0 
+##  [5] digest_0.6.4     evaluate_0.5.1   formatR_0.10     grid_2.15.2     
+##  [9] gtable_0.1.2     labeling_0.2     markdown_0.6.4   MASS_7.3-23     
+## [13] munsell_0.4.2    proto_0.3-10     reshape2_1.2.2   scales_0.2.3    
+## [17] stringr_0.6.2    tools_2.15.2     whisker_0.3-2    yaml_2.1.10
+</code></pre>
+
+  </article>
+  <!-- Presenter Notes -->
+</slide>
+
+<slide class="segue dark quote" id="slide-12" style="background:;">
+  <article data-timings="">
+    <p><q class = 'yellow'> Reproducible research is a very important
+concept. Not only in order to allow others to reproduce and understand
+what you did, but also to allow others to extend your research.
+Programs with &#39;point and click&#39; menus are not in line with this
+concept.</q></p>
+
+  </article>
+  <!-- Presenter Notes -->
+</slide>
+
+<slide class="" id="slide-13" style="background:;">
+  <hgroup>
+    <h2>R syntax</h2>
+  </hgroup>
+  <article data-timings="">
+    <pre><code class="r">10 &gt; 2
+</code></pre>
+
+<pre><code>## [1] TRUE
+</code></pre>
+
+<pre><code class="r">(3 * 2) == 5  # caution: &#39;==&#39; is different than &#39;=&#39;
+</code></pre>
+
+<pre><code>## [1] FALSE
+</code></pre>
+
+<pre><code class="r">&quot;Hello, world&quot;
+</code></pre>
+
+<pre><code>## [1] &quot;Hello, world&quot;
+</code></pre>
+
+  </article>
+  <!-- Presenter Notes -->
+</slide>
+
+<slide class="" id="slide-14" style="background:;">
+  <hgroup>
+    <h2>Variables</h2>
+  </hgroup>
+  <article data-timings="">
+    <pre><code class="r">a &lt;- 100
+a
+</code></pre>
+
+<pre><code>## [1] 100
+</code></pre>
+
+<pre><code class="r">a * 8
+</code></pre>
+
+<pre><code>## [1] 800
+</code></pre>
+
+<pre><code class="r">a &lt;- 20
+a &lt;- &quot;New string&quot;
+a
+</code></pre>
+
+<pre><code>## [1] &quot;New string&quot;
+</code></pre>
+
+  </article>
+  <!-- Presenter Notes -->
+</slide>
+
+<slide class="" id="slide-15" style="background:;">
+  <hgroup>
+    <h2>Functions</h2>
+  </hgroup>
+  <article data-timings="">
+    <pre><code class="r">log(100)
+</code></pre>
+
+<pre><code>## [1] 4.605
+</code></pre>
+
+<pre><code class="r">log10(100)
+</code></pre>
+
+<pre><code>## [1] 2
+</code></pre>
+
+<pre><code class="r">sequence(5)
+</code></pre>
+
+<pre><code>## [1] 1 2 3 4 5
+</code></pre>
+
+<pre><code class="r">seq(from = 0, to = 1, by = 0.2)
+</code></pre>
+
+<pre><code>## [1] 0.0 0.2 0.4 0.6 0.8 1.0
+</code></pre>
+
+  </article>
+  <!-- Presenter Notes -->
+</slide>
+
+<slide class="" id="slide-16" style="background:;">
+  <hgroup>
+    <h3>Exercise</h3>
+  </hgroup>
+  <article data-timings="">
+    <ol>
+<li>Compute the square root of all numbers from 7 to 1458.</li>
+<li>Compute the square root of all even numbers from 7 to 1458.</li>
+</ol>
+
+  </article>
+  <!-- Presenter Notes -->
+</slide>
+
+<slide class="" id="slide-17" style="background:;">
+  <hgroup>
+    <h2>Help!</h2>
+  </hgroup>
+  <article data-timings="">
+    <pre><code class="r">help(seq)
+`?`(seq)
+help.search(&quot;histogram&quot;)
+</code></pre>
+
+<h3>Exercise</h3>
+
+<ol>
+<li>Find help about the function plot()</li>
+</ol>
+
+  </article>
+  <!-- Presenter Notes -->
+</slide>
+
+<slide class="" id="slide-18" style="background:;">
+  <hgroup>
+    <h2>RSeek</h2>
+  </hgroup>
+  <article data-timings="">
+    <p><a href="http://www.rseek.org/">http://www.rseek.org/</a></p>
+
+<p><img src="/home/augusto/Dropbox/Talks/2014%20USP%20Ribeirao%20Preto/augusto/figures/RSeek.jpg" alt="rseek"></p>
+
+  </article>
+  <!-- Presenter Notes -->
+</slide>
+
+<slide class="" id="slide-19" style="background:;">
+  <hgroup>
+    <h3>Exercise</h3>
+  </hgroup>
+  <article data-timings="">
+    <ol>
+<li>Find R packages for &quot;linkage mapping&quot;</li>
+<li>Find R packages for &quot;QTL mapping&quot;</li>
+<li>&quot;Genomic selection&quot;</li>
+<li class = '..'>(your choice)</li>
+</ol>
+
+  </article>
+  <!-- Presenter Notes -->
+</slide>
+
+<slide class="" id="slide-20" style="background:;">
+  <hgroup>
+    <h2>Install and load packages</h2>
+  </hgroup>
+  <article data-timings="">
+    <ul>
+<li>Repositories: your choice, but closer is better</li>
+</ul>
+
+<pre><code class="r">install.packages()
+</code></pre>
+
+<pre><code class="r">install.packages(&quot;fortunes&quot;)
+</code></pre>
+
+<pre><code class="r">library(&quot;fortunes&quot;)
+fortune()
+</code></pre>
+
+<pre><code>## 
+## I cannot remember if I have been using 14 or 14, I think it was 14 and I
+## am not near the machine to check.
+##    -- John Kane (confused about his SPSS version)
+##       R-help (April 2007)
+</code></pre>
+
+  </article>
+  <!-- Presenter Notes -->
+</slide>
+
+<slide class="" id="slide-21" style="background:;">
+  <hgroup>
+    <h2>More help</h2>
+  </hgroup>
+  <article data-timings="">
+    <pre><code class="r">install.packages(&quot;sos&quot;)
+</code></pre>
+
+<pre><code class="r">library(&quot;sos&quot;)
+findFn(&quot;qtl&quot;)
+</code></pre>
+
+<pre><code>## found 633 matches;  retrieving 20 pages, 400 matches.
+## 2 3 4 5 6 7 8 9 10 
+## 11 12 13 14 15 16 17 18 19 20 
+## 
+## Downloaded 354 links in 33 packages.
+</code></pre>
+
+  </article>
+  <!-- Presenter Notes -->
+</slide>
+
+<slide class="" id="slide-22" style="background:;">
+  <hgroup>
+    <h2>SOS!</h2>
+  </hgroup>
+  <article data-timings="">
+    <pre><code class="r">findFn(&quot;metabolomic&quot;)
+</code></pre>
+
+<pre><code>## found 65 matches;  retrieving 4 pages
+## 2 3 4 
+## Downloaded 63 links in 16 packages.
+</code></pre>
+
+<pre><code class="r">findFn(&quot;qtl mapping metabolomic&quot;)
+</code></pre>
+
+<pre><code>## found 2 matches
+## Downloaded 2 links in 1 packages.
+</code></pre>
+
+  </article>
+  <!-- Presenter Notes -->
+</slide>
+
+<slide class="" id="slide-23" style="background:;">
+  <hgroup>
+    <h2>Packages on your computer</h2>
+  </hgroup>
+  <article data-timings="">
+    <pre><code class="r">installed.packages()
+</code></pre>
+
+<pre><code>##                  Package           
+## bitops           &quot;bitops&quot;          
+## BLR              &quot;BLR&quot;             
+## colorspace       &quot;colorspace&quot;      
+## devtools         &quot;devtools&quot;        
+## dichromat        &quot;dichromat&quot;       
+## digest           &quot;digest&quot;          
+## evaluate         &quot;evaluate&quot;        
+## formatR          &quot;formatR&quot;         
+## fortunes         &quot;fortunes&quot;        
+## ggplot2          &quot;ggplot2&quot;         
+## gtable           &quot;gtable&quot;          
+## highr            &quot;highr&quot;           
+## httr             &quot;httr&quot;            
+## knitr            &quot;knitr&quot;           
+## labeling         &quot;labeling&quot;        
+## markdown         &quot;markdown&quot;        
+## memoise          &quot;memoise&quot;         
+## munsell          &quot;munsell&quot;         
+## plyr             &quot;plyr&quot;            
+## proto            &quot;proto&quot;           
+## qtl              &quot;qtl&quot;             
+## R2G2             &quot;R2G2&quot;            
+## RColorBrewer     &quot;RColorBrewer&quot;    
+## RCurl            &quot;RCurl&quot;           
+## reshape2         &quot;reshape2&quot;        
+## scales           &quot;scales&quot;          
+## slidify          &quot;slidify&quot;         
+## slidifyLibraries &quot;slidifyLibraries&quot;
+## stringr          &quot;stringr&quot;         
+## SuppDists        &quot;SuppDists&quot;       
+## whisker          &quot;whisker&quot;         
+## yaml             &quot;yaml&quot;            
+## base             &quot;base&quot;            
+## boot             &quot;boot&quot;            
+## class            &quot;class&quot;           
+## cluster          &quot;cluster&quot;         
+## codetools        &quot;codetools&quot;       
+## compiler         &quot;compiler&quot;        
+## datasets         &quot;datasets&quot;        
+## foreign          &quot;foreign&quot;         
+## graphics         &quot;graphics&quot;        
+## grDevices        &quot;grDevices&quot;       
+## grid             &quot;grid&quot;            
+## KernSmooth       &quot;KernSmooth&quot;      
+## lattice          &quot;lattice&quot;         
+## MASS             &quot;MASS&quot;            
+## Matrix           &quot;Matrix&quot;          
+## methods          &quot;methods&quot;         
+## mgcv             &quot;mgcv&quot;            
+## nlme             &quot;nlme&quot;            
+## nnet             &quot;nnet&quot;            
+## parallel         &quot;parallel&quot;        
+## rpart            &quot;rpart&quot;           
+## spatial          &quot;spatial&quot;         
+## splines          &quot;splines&quot;         
+## stats            &quot;stats&quot;           
+## stats4           &quot;stats4&quot;          
+## survival         &quot;survival&quot;        
+## tcltk            &quot;tcltk&quot;           
+## tools            &quot;tools&quot;           
+## utils            &quot;utils&quot;           
+##                  LibPath                                           
+## bitops           &quot;/home/augusto/R/x86_64-pc-linux-gnu-library/2.15&quot;
+## BLR              &quot;/home/augusto/R/x86_64-pc-linux-gnu-library/2.15&quot;
+## colorspace       &quot;/home/augusto/R/x86_64-pc-linux-gnu-library/2.15&quot;
+## devtools         &quot;/home/augusto/R/x86_64-pc-linux-gnu-library/2.15&quot;
+## dichromat        &quot;/home/augusto/R/x86_64-pc-linux-gnu-library/2.15&quot;
+## digest           &quot;/home/augusto/R/x86_64-pc-linux-gnu-library/2.15&quot;
+## evaluate         &quot;/home/augusto/R/x86_64-pc-linux-gnu-library/2.15&quot;
+## formatR          &quot;/home/augusto/R/x86_64-pc-linux-gnu-library/2.15&quot;
+## fortunes         &quot;/home/augusto/R/x86_64-pc-linux-gnu-library/2.15&quot;
+## ggplot2          &quot;/home/augusto/R/x86_64-pc-linux-gnu-library/2.15&quot;
+## gtable           &quot;/home/augusto/R/x86_64-pc-linux-gnu-library/2.15&quot;
+## highr            &quot;/home/augusto/R/x86_64-pc-linux-gnu-library/2.15&quot;
+## httr             &quot;/home/augusto/R/x86_64-pc-linux-gnu-library/2.15&quot;
+## knitr            &quot;/home/augusto/R/x86_64-pc-linux-gnu-library/2.15&quot;
+## labeling         &quot;/home/augusto/R/x86_64-pc-linux-gnu-library/2.15&quot;
+## markdown         &quot;/home/augusto/R/x86_64-pc-linux-gnu-library/2.15&quot;
+## memoise          &quot;/home/augusto/R/x86_64-pc-linux-gnu-library/2.15&quot;
+## munsell          &quot;/home/augusto/R/x86_64-pc-linux-gnu-library/2.15&quot;
+## plyr             &quot;/home/augusto/R/x86_64-pc-linux-gnu-library/2.15&quot;
+## proto            &quot;/home/augusto/R/x86_64-pc-linux-gnu-library/2.15&quot;
+## qtl              &quot;/home/augusto/R/x86_64-pc-linux-gnu-library/2.15&quot;
+## R2G2             &quot;/home/augusto/R/x86_64-pc-linux-gnu-library/2.15&quot;
+## RColorBrewer     &quot;/home/augusto/R/x86_64-pc-linux-gnu-library/2.15&quot;
+## RCurl            &quot;/home/augusto/R/x86_64-pc-linux-gnu-library/2.15&quot;
+## reshape2         &quot;/home/augusto/R/x86_64-pc-linux-gnu-library/2.15&quot;
+## scales           &quot;/home/augusto/R/x86_64-pc-linux-gnu-library/2.15&quot;
+## slidify          &quot;/home/augusto/R/x86_64-pc-linux-gnu-library/2.15&quot;
+## slidifyLibraries &quot;/home/augusto/R/x86_64-pc-linux-gnu-library/2.15&quot;
+## stringr          &quot;/home/augusto/R/x86_64-pc-linux-gnu-library/2.15&quot;
+## SuppDists        &quot;/home/augusto/R/x86_64-pc-linux-gnu-library/2.15&quot;
+## whisker          &quot;/home/augusto/R/x86_64-pc-linux-gnu-library/2.15&quot;
+## yaml             &quot;/home/augusto/R/x86_64-pc-linux-gnu-library/2.15&quot;
+## base             &quot;/usr/lib/R/library&quot;                              
+## boot             &quot;/usr/lib/R/library&quot;                              
+## class            &quot;/usr/lib/R/library&quot;                              
+## cluster          &quot;/usr/lib/R/library&quot;                              
+## codetools        &quot;/usr/lib/R/library&quot;                              
+## compiler         &quot;/usr/lib/R/library&quot;                              
+## datasets         &quot;/usr/lib/R/library&quot;                              
+## foreign          &quot;/usr/lib/R/library&quot;                              
+## graphics         &quot;/usr/lib/R/library&quot;                              
+## grDevices        &quot;/usr/lib/R/library&quot;                              
+## grid             &quot;/usr/lib/R/library&quot;                              
+## KernSmooth       &quot;/usr/lib/R/library&quot;                              
+## lattice          &quot;/usr/lib/R/library&quot;                              
+## MASS             &quot;/usr/lib/R/library&quot;                              
+## Matrix           &quot;/usr/lib/R/library&quot;                              
+## methods          &quot;/usr/lib/R/library&quot;                              
+## mgcv             &quot;/usr/lib/R/library&quot;                              
+## nlme             &quot;/usr/lib/R/library&quot;                              
+## nnet             &quot;/usr/lib/R/library&quot;                              
+## parallel         &quot;/usr/lib/R/library&quot;                              
+## rpart            &quot;/usr/lib/R/library&quot;                              
+## spatial          &quot;/usr/lib/R/library&quot;                              
+## splines          &quot;/usr/lib/R/library&quot;                              
+## stats            &quot;/usr/lib/R/library&quot;                              
+## stats4           &quot;/usr/lib/R/library&quot;                              
+## survival         &quot;/usr/lib/R/library&quot;                              
+## tcltk            &quot;/usr/lib/R/library&quot;                              
+## tools            &quot;/usr/lib/R/library&quot;                              
+## utils            &quot;/usr/lib/R/library&quot;                              
+##                  Version    Priority     
+## bitops           &quot;1.0-6&quot;    NA           
+## BLR              &quot;1.3&quot;      NA           
+## colorspace       &quot;1.2-4&quot;    NA           
+## devtools         &quot;1.4.1&quot;    NA           
+## dichromat        &quot;2.0-0&quot;    NA           
+## digest           &quot;0.6.4&quot;    NA           
+## evaluate         &quot;0.5.1&quot;    NA           
+## formatR          &quot;0.10&quot;     NA           
+## fortunes         &quot;1.5-2&quot;    NA           
+## ggplot2          &quot;0.9.3.1&quot;  NA           
+## gtable           &quot;0.1.2&quot;    NA           
+## highr            &quot;0.3&quot;      NA           
+## httr             &quot;0.2&quot;      NA           
+## knitr            &quot;1.5&quot;      NA           
+## labeling         &quot;0.2&quot;      NA           
+## markdown         &quot;0.6.4&quot;    NA           
+## memoise          &quot;0.1&quot;      NA           
+## munsell          &quot;0.4.2&quot;    NA           
+## plyr             &quot;1.8&quot;      NA           
+## proto            &quot;0.3-10&quot;   NA           
+## qtl              &quot;1.30-4&quot;   NA           
+## R2G2             &quot;1.0-2&quot;    NA           
+## RColorBrewer     &quot;1.0-5&quot;    NA           
+## RCurl            &quot;1.95-4.1&quot; NA           
+## reshape2         &quot;1.2.2&quot;    NA           
+## scales           &quot;0.2.3&quot;    NA           
+## slidify          &quot;0.4&quot;      NA           
+## slidifyLibraries &quot;0.3.1&quot;    NA           
+## stringr          &quot;0.6.2&quot;    NA           
+## SuppDists        &quot;1.1-9.1&quot;  NA           
+## whisker          &quot;0.3-2&quot;    NA           
+## yaml             &quot;2.1.10&quot;   NA           
+## base             &quot;2.15.2&quot;   &quot;base&quot;       
+## boot             &quot;1.3-7&quot;    &quot;recommended&quot;
+## class            &quot;7.3-5&quot;    &quot;recommended&quot;
+## cluster          &quot;1.14.3&quot;   &quot;recommended&quot;
+## codetools        &quot;0.2-8&quot;    &quot;recommended&quot;
+## compiler         &quot;2.15.2&quot;   &quot;base&quot;       
+## datasets         &quot;2.15.2&quot;   &quot;base&quot;       
+## foreign          &quot;0.8-52&quot;   &quot;recommended&quot;
+## graphics         &quot;2.15.2&quot;   &quot;base&quot;       
+## grDevices        &quot;2.15.2&quot;   &quot;base&quot;       
+## grid             &quot;2.15.2&quot;   &quot;base&quot;       
+## KernSmooth       &quot;2.23-8&quot;   &quot;recommended&quot;
+## lattice          &quot;0.20-13&quot;  &quot;recommended&quot;
+## MASS             &quot;7.3-23&quot;   &quot;recommended&quot;
+## Matrix           &quot;1.0-11&quot;   &quot;recommended&quot;
+## methods          &quot;2.15.2&quot;   &quot;base&quot;       
+## mgcv             &quot;1.7-22&quot;   &quot;recommended&quot;
+## nlme             &quot;3.1-108&quot;  &quot;recommended&quot;
+## nnet             &quot;7.3-5&quot;    &quot;recommended&quot;
+## parallel         &quot;2.15.2&quot;   &quot;base&quot;       
+## rpart            &quot;4.1-0&quot;    &quot;recommended&quot;
+## spatial          &quot;7.3-5&quot;    &quot;recommended&quot;
+## splines          &quot;2.15.2&quot;   &quot;base&quot;       
+## stats            &quot;2.15.2&quot;   &quot;base&quot;       
+## stats4           &quot;2.15.2&quot;   &quot;base&quot;       
+## survival         &quot;2.37-2&quot;   &quot;recommended&quot;
+## tcltk            &quot;2.15.2&quot;   &quot;base&quot;       
+## tools            &quot;2.15.2&quot;   &quot;base&quot;       
+## utils            &quot;2.15.2&quot;   &quot;base&quot;       
+##                  Depends                                           
+## bitops           NA                                                
+## BLR              &quot;R (&gt;= 2.10), SuppDists&quot;                          
+## colorspace       &quot;R (&gt;= 2.13.0), methods&quot;                          
+## devtools         &quot;R (&gt;= 2.15)&quot;                                     
+## dichromat        &quot;R (&gt;= 2.10), stats&quot;                              
+## digest           &quot;R (&gt;= 2.4.1)&quot;                                    
+## evaluate         &quot;R (&gt;= 2.14.0)&quot;                                   
+## formatR          NA                                                
+## fortunes         NA                                                
+## ggplot2          &quot;R (&gt;= 2.14), stats, methods&quot;                     
+## gtable           &quot;R (&gt;= 2.14), grid&quot;                               
+## highr            NA                                                
+## httr             NA                                                
+## knitr            &quot;R (&gt;= 2.14.1)&quot;                                   
+## labeling         NA                                                
+## markdown         &quot;R (&gt;= 2.11.1)&quot;                                   
+## memoise          NA                                                
+## munsell          NA                                                
+## plyr             &quot;R (&gt;= 2.11.0)&quot;                                   
+## proto            NA                                                
+## qtl              &quot;R (&gt;= 2.14.0), graphics, stats, parallel, utils&quot; 
+## R2G2             NA                                                
+## RColorBrewer     &quot;R (&gt;= 2.0.0)&quot;                                    
+## RCurl            &quot;R (&gt;= 2.7.0), methods, bitops&quot;                   
+## reshape2         NA                                                
+## scales           &quot;R (&gt;= 2.12), methods&quot;                            
+## slidify          &quot;\nR (&gt;= 2.15.0)&quot;                                 
+## slidifyLibraries NA                                                
+## stringr          &quot;R (&gt;= 2.14)&quot;                                     
+## SuppDists        NA                                                
+## whisker          NA                                                
+## yaml             NA                                                
+## base             NA                                                
+## boot             &quot;R (&gt;= 2.14.0), graphics, stats&quot;                  
+## class            &quot;R (&gt;= 2.5.0), stats, utils&quot;                      
+## cluster          &quot;R (&gt;= 2.10.0), stats, graphics, utils&quot;           
+## codetools        &quot;R (&gt;= 2.1)&quot;                                      
+## compiler         NA                                                
+## datasets         NA                                                
+## foreign          &quot;R (&gt;= 2.14.0), stats&quot;                            
+## graphics         NA                                                
+## grDevices        NA                                                
+## grid             NA                                                
+## KernSmooth       &quot;R (&gt;= 2.5.0), stats&quot;                             
+## lattice          &quot;R (&gt;= 2.15.1)&quot;                                   
+## MASS             &quot;R (&gt;= 2.14.0), grDevices, graphics, stats, utils&quot;
+## Matrix           &quot;R (&gt;= 2.15.0), stats, methods, utils, lattice&quot;   
+## methods          NA                                                
+## mgcv             &quot;R (&gt;= 2.14.0), stats, graphics&quot;                  
+## nlme             &quot;graphics, stats, R (&gt;= 2.14.0), R (&lt; 3.0.0)&quot;     
+## nnet             &quot;R (&gt;= 2.5.0), stats, utils&quot;                      
+## parallel         NA                                                
+## rpart            &quot;R (&gt;= 2.14.0), graphics, stats, grDevices&quot;       
+## spatial          &quot;R (&gt;= 2.5.0), graphics, stats, utils&quot;            
+## splines          NA                                                
+## stats            NA                                                
+## stats4           &quot;methods, graphics, stats&quot;                        
+## survival         &quot;stats, utils, graphics, splines, R (&gt;= 2.13.0)&quot;  
+## tcltk            NA                                                
+## tools            NA                                                
+## utils            NA                                                
+##                  Imports                                                                                                       
+## bitops           NA                                                                                                            
+## BLR              NA                                                                                                            
+## colorspace       NA                                                                                                            
+## devtools         &quot;httr, RCurl, utils, tools, methods, memoise, whisker,\nevaluate, digest&quot;                                     
+## dichromat        NA                                                                                                            
+## digest           NA                                                                                                            
+## evaluate         &quot;stringr (&gt;= 0.4)&quot;                                                                                            
+## formatR          NA                                                                                                            
+## fortunes         &quot;utils&quot;                                                                                                       
+## ggplot2          &quot;plyr (&gt;= 1.7.1), digest, grid, gtable (&gt;= 0.1.1), reshape2,\nscales (&gt;= 0.2.3), proto, MASS&quot;                 
+## gtable           NA                                                                                                            
+## highr            NA                                                                                                            
+## httr             &quot;RCurl (&gt;= 1.95-0), stringr (&gt;= 0.6.1), digest, tools&quot;                                                        
+## knitr            &quot;evaluate (&gt;= 0.4.7), digest, formatR (&gt;= 0.9), highr (&gt;= 0.2),\nmarkdown (&gt;= 0.6.3), stringr (&gt;= 0.6), tools&quot;
+## labeling         NA                                                                                                            
+## markdown         NA                                                                                                            
+## memoise          &quot;digest&quot;                                                                                                      
+## munsell          &quot;colorspace&quot;                                                                                                  
+## plyr             NA                                                                                                            
+## proto            NA                                                                                                            
+## qtl              NA                                                                                                            
+## R2G2             NA                                                                                                            
+## RColorBrewer     NA                                                                                                            
+## RCurl            &quot;methods&quot;                                                                                                     
+## reshape2         &quot;plyr (&gt;= 1.5), stringr, lattice&quot;                                                                             
+## scales           &quot;RColorBrewer, stringr, dichromat, munsell (&gt;= 0.2), plyr (&gt;=\n1.2), labeling&quot;                                
+## slidify          &quot;\nknitr (&gt;= 0.1),\nmarkdown,\nstringr,\nyaml,\nwhisker&quot;                                                      
+## slidifyLibraries NA                                                                                                            
+## stringr          NA                                                                                                            
+## SuppDists        NA                                                                                                            
+## whisker          NA                                                                                                            
+## yaml             NA                                                                                                            
+## base             NA                                                                                                            
+## boot             NA                                                                                                            
+## class            &quot;MASS&quot;                                                                                                        
+## cluster          NA                                                                                                            
+## codetools        NA                                                                                                            
+## compiler         NA                                                                                                            
+## datasets         NA                                                                                                            
+## foreign          &quot;methods, utils&quot;                                                                                              
+## graphics         &quot;grDevices&quot;                                                                                                   
+## grDevices        NA                                                                                                            
+## grid             &quot;grDevices&quot;                                                                                                   
+## KernSmooth       NA                                                                                                            
+## lattice          &quot;grid, grDevices, graphics, stats, utils&quot;                                                                     
+## MASS             NA                                                                                                            
+## Matrix           &quot;graphics, grid&quot;                                                                                              
+## methods          &quot;utils&quot;                                                                                                       
+## mgcv             &quot;nlme, methods, Matrix&quot;                                                                                       
+## nlme             &quot;lattice&quot;                                                                                                     
+## nnet             NA                                                                                                            
+## parallel         NA                                                                                                            
+## rpart            NA                                                                                                            
+## spatial          NA                                                                                                            
+## splines          &quot;graphics, stats&quot;                                                                                             
+## stats            NA                                                                                                            
+## stats4           NA                                                                                                            
+## survival         NA                                                                                                            
+## tcltk            NA                                                                                                            
+## tools            NA                                                                                                            
+## utils            NA                                                                                                            
+##                  LinkingTo
+## bitops           NA       
+## BLR              NA       
+## colorspace       NA       
+## devtools         NA       
+## dichromat        NA       
+## digest           NA       
+## evaluate         NA       
+## formatR          NA       
+## fortunes         NA       
+## ggplot2          NA       
+## gtable           NA       
+## highr            NA       
+## httr             NA       
+## knitr            NA       
+## labeling         NA       
+## markdown         NA       
+## memoise          NA       
+## munsell          NA       
+## plyr             NA       
+## proto            NA       
+## qtl              NA       
+## R2G2             NA       
+## RColorBrewer     NA       
+## RCurl            NA       
+## reshape2         NA       
+## scales           NA       
+## slidify          NA       
+## slidifyLibraries NA       
+## stringr          NA       
+## SuppDists        NA       
+## whisker          NA       
+## yaml             NA       
+## base             NA       
+## boot             NA       
+## class            NA       
+## cluster          NA       
+## codetools        NA       
+## compiler         NA       
+## datasets         NA       
+## foreign          NA       
+## graphics         NA       
+## grDevices        NA       
+## grid             NA       
+## KernSmooth       NA       
+## lattice          NA       
+## MASS             NA       
+## Matrix           NA       
+## methods          NA       
+## mgcv             NA       
+## nlme             NA       
+## nnet             NA       
+## parallel         NA       
+## rpart            NA       
+## spatial          NA       
+## splines          NA       
+## stats            NA       
+## stats4           NA       
+## survival         NA       
+## tcltk            NA       
+## tools            NA       
+## utils            NA       
+##                  Suggests                                                                             
+## bitops           NA                                                                                   
+## BLR              NA                                                                                   
+## colorspace       &quot;KernSmooth, MASS, kernlab, mvtnorm, vcd, tcltk, dichromat&quot;                          
+## devtools         &quot;testthat (&gt;= 0.7), roxygen2, BiocInstaller, Rcpp (&gt;= 0.10.0),\nMASS, knitr, rstudio&quot;
+## dichromat        NA                                                                                   
+## digest           NA                                                                                   
+## evaluate         &quot;testthat, ggplot2&quot;                                                                  
+## formatR          &quot;codetools, gWidgetsRGtk2, testit, knitr&quot;                                            
+## fortunes         NA                                                                                   
+## ggplot2          &quot;quantreg, Hmisc, mapproj, maps, hexbin, maptools, multcomp,\nnlme, testthat&quot;        
+## gtable           &quot;testthat, plyr&quot;                                                                     
+## highr            &quot;knitr, testit&quot;                                                                      
+## httr             &quot;rjson, XML, testthat, png, jpeg, Rook&quot;                                              
+## knitr            &quot;testit, rgl, codetools, XML, RCurl&quot;                                                 
+## labeling         NA                                                                                   
+## markdown         &quot;knitr, RCurl&quot;                                                                       
+## memoise          NA                                                                                   
+## munsell          &quot;ggplot2 (&gt;= 0.9.2)&quot;                                                                 
+## plyr             &quot;abind, testthat (&gt;= 0.2), tcltk, foreach, doMC, itertools,\niterators&quot;              
+## proto            &quot;graph, Rgraphviz&quot;                                                                   
+## qtl              NA                                                                                   
+## R2G2             NA                                                                                   
+## RColorBrewer     NA                                                                                   
+## RCurl            &quot;Rcompression, XML&quot;                                                                  
+## reshape2         &quot;testthat&quot;                                                                           
+## scales           &quot;testthat&quot;                                                                           
+## slidify          NA                                                                                   
+## slidifyLibraries NA                                                                                   
+## stringr          &quot;testthat (&gt;= 0.3)&quot;                                                                  
+## SuppDists        NA                                                                                   
+## whisker          &quot;markdown&quot;                                                                           
+## yaml             &quot;testthat&quot;                                                                           
+## base             NA                                                                                   
+## boot             &quot;MASS, survival&quot;                                                                     
+## class            NA                                                                                   
+## cluster          &quot;MASS&quot;                                                                               
+## codetools        NA                                                                                   
+## compiler         NA                                                                                   
+## datasets         NA                                                                                   
+## foreign          NA                                                                                   
+## graphics         NA                                                                                   
+## grDevices        NA                                                                                   
+## grid             &quot;lattice&quot;                                                                            
+## KernSmooth       &quot;MASS&quot;                                                                               
+## lattice          &quot;grid, KernSmooth, MASS&quot;                                                             
+## MASS             &quot;lattice, nlme, nnet, survival&quot;                                                      
+## Matrix           &quot;expm, MASS&quot;                                                                         
+## methods          NA                                                                                   
+## mgcv             &quot;nlme (&gt;= 3.1-64), splines, Matrix, parallel&quot;                                        
+## nlme             &quot;Hmisc, MASS&quot;                                                                        
+## nnet             &quot;MASS&quot;                                                                               
+## parallel         NA                                                                                   
+## rpart            &quot;survival&quot;                                                                           
+## spatial          &quot;MASS&quot;                                                                               
+## splines          NA                                                                                   
+## stats            NA                                                                                   
+## stats4           NA                                                                                   
+## survival         NA                                                                                   
+## tcltk            NA                                                                                   
+## tools            NA                                                                                   
+## utils            NA                                                                                   
+##                  Enhances                                OS_type
+## bitops           NA                                      NA     
+## BLR              NA                                      NA     
+## colorspace       NA                                      NA     
+## devtools         NA                                      NA     
+## dichromat        NA                                      NA     
+## digest           NA                                      NA     
+## evaluate         NA                                      NA     
+## formatR          NA                                      NA     
+## fortunes         NA                                      NA     
+## ggplot2          &quot;sp&quot;                                    NA     
+## gtable           NA                                      NA     
+## highr            NA                                      NA     
+## httr             NA                                      NA     
+## knitr            NA                                      NA     
+## labeling         NA                                      NA     
+## markdown         NA                                      NA     
+## memoise          NA                                      NA     
+## munsell          NA                                      NA     
+## plyr             NA                                      NA     
+## proto            NA                                      NA     
+## qtl              NA                                      NA     
+## R2G2             NA                                      NA     
+## RColorBrewer     NA                                      NA     
+## RCurl            NA                                      NA     
+## reshape2         NA                                      NA     
+## scales           NA                                      NA     
+## slidify          NA                                      NA     
+## slidifyLibraries NA                                      NA     
+## stringr          NA                                      NA     
+## SuppDists        NA                                      NA     
+## whisker          NA                                      NA     
+## yaml             NA                                      NA     
+## base             NA                                      NA     
+## boot             NA                                      NA     
+## class            NA                                      NA     
+## cluster          NA                                      NA     
+## codetools        NA                                      NA     
+## compiler         NA                                      NA     
+## datasets         NA                                      NA     
+## foreign          NA                                      NA     
+## graphics         NA                                      NA     
+## grDevices        NA                                      NA     
+## grid             NA                                      NA     
+## KernSmooth       NA                                      NA     
+## lattice          &quot;chron&quot;                                 NA     
+## MASS             NA                                      NA     
+## Matrix           &quot;MatrixModels, graph, SparseM, sfsmisc&quot; NA     
+## methods          NA                                      NA     
+## mgcv             NA                                      NA     
+## nlme             NA                                      NA     
+## nnet             NA                                      NA     
+## parallel         &quot;snow&quot;                                  NA     
+## rpart            NA                                      NA     
+## spatial          NA                                      NA     
+## splines          NA                                      NA     
+## stats            NA                                      NA     
+## stats4           NA                                      NA     
+## survival         NA                                      NA     
+## tcltk            NA                                      NA     
+## tools            NA                                      NA     
+## utils            NA                                      NA     
+##                  License                       Built   
+## bitops           &quot;GPL (&gt;= 2)&quot;                  &quot;2.15.2&quot;
+## BLR              &quot;GPL-2&quot;                       &quot;2.15.2&quot;
+## colorspace       &quot;BSD_3_clause + file LICENSE&quot; &quot;2.15.2&quot;
+## devtools         &quot;GPL (&gt;= 2)&quot;                  &quot;2.15.2&quot;
+## dichromat        &quot;GPL-2&quot;                       &quot;2.15.2&quot;
+## digest           &quot;GPL-2&quot;                       &quot;2.15.2&quot;
+## evaluate         &quot;GPL&quot;                         &quot;2.15.2&quot;
+## formatR          &quot;GPL&quot;                         &quot;2.15.2&quot;
+## fortunes         &quot;GPL-2&quot;                       &quot;2.15.2&quot;
+## ggplot2          &quot;GPL-2&quot;                       &quot;2.15.2&quot;
+## gtable           &quot;GPL-2&quot;                       &quot;2.15.2&quot;
+## highr            &quot;GPL&quot;                         &quot;2.15.2&quot;
+## httr             &quot;MIT&quot;                         &quot;2.15.2&quot;
+## knitr            &quot;GPL&quot;                         &quot;2.15.2&quot;
+## labeling         &quot;MIT | Unlimited&quot;             &quot;2.15.2&quot;
+## markdown         &quot;GPL-2&quot;                       &quot;2.15.2&quot;
+## memoise          &quot;MIT&quot;                         &quot;2.15.2&quot;
+## munsell          &quot;MIT + file LICENSE&quot;          &quot;2.15.2&quot;
+## plyr             &quot;MIT&quot;                         &quot;2.15.2&quot;
+## proto            &quot;GPL-2&quot;                       &quot;2.15.2&quot;
+## qtl              &quot;GPL-3&quot;                       &quot;2.15.2&quot;
+## R2G2             &quot;LGPL&quot;                        &quot;2.15.2&quot;
+## RColorBrewer     &quot;Apache License 2.0&quot;          &quot;2.15.2&quot;
+## RCurl            &quot;BSD&quot;                         &quot;2.15.2&quot;
+## reshape2         &quot;MIT&quot;                         &quot;2.15.2&quot;
+## scales           &quot;MIT&quot;                         &quot;2.15.2&quot;
+## slidify          &quot;MIT&quot;                         &quot;2.15.2&quot;
+## slidifyLibraries &quot;MIT&quot;                         &quot;2.15.2&quot;
+## stringr          &quot;GPL-2&quot;                       &quot;2.15.2&quot;
+## SuppDists        &quot;GPL (&gt;= 2)&quot;                  &quot;2.15.2&quot;
+## whisker          &quot;GPL-3&quot;                       &quot;2.15.2&quot;
+## yaml             &quot;BSD_3_clause + file LICENSE&quot; &quot;2.15.2&quot;
+## base             &quot;Part of R 2.15.2&quot;            &quot;2.15.2&quot;
+## boot             &quot;Unlimited&quot;                   &quot;2.15.1&quot;
+## class            &quot;GPL-2 | GPL-3&quot;               &quot;2.15.1&quot;
+## cluster          &quot;GPL (&gt;= 2)&quot;                  &quot;2.15.1&quot;
+## codetools        &quot;GPL&quot;                         &quot;2.12.1&quot;
+## compiler         &quot;Part of R 2.15.2&quot;            &quot;2.15.2&quot;
+## datasets         &quot;Part of R 2.15.2&quot;            &quot;2.15.2&quot;
+## foreign          &quot;GPL (&gt;= 2)&quot;                  &quot;2.15.2&quot;
+## graphics         &quot;Part of R 2.15.2&quot;            &quot;2.15.2&quot;
+## grDevices        &quot;Part of R 2.15.2&quot;            &quot;2.15.2&quot;
+## grid             &quot;Part of R 2.15.2&quot;            &quot;2.15.2&quot;
+## KernSmooth       &quot;Unlimited&quot;                   &quot;2.15.1&quot;
+## lattice          &quot;GPL (&gt;= 2)&quot;                  &quot;2.15.2&quot;
+## MASS             &quot;GPL-2 | GPL-3&quot;               &quot;2.15.2&quot;
+## Matrix           &quot;GPL (&gt;= 2)&quot;                  &quot;2.15.2&quot;
+## methods          &quot;Part of R 2.15.2&quot;            &quot;2.15.2&quot;
+## mgcv             &quot;GPL (&gt;= 2)&quot;                  &quot;2.15.1&quot;
+## nlme             &quot;GPL (&gt;= 2)&quot;                  &quot;2.15.2&quot;
+## nnet             &quot;GPL-2 | GPL-3&quot;               &quot;2.15.1&quot;
+## parallel         &quot;Part of R 2.15.2&quot;            &quot;2.15.2&quot;
+## rpart            &quot;GPL-2 | GPL-3&quot;               &quot;2.15.2&quot;
+## spatial          &quot;GPL-2 | GPL-3&quot;               &quot;2.15.1&quot;
+## splines          &quot;Part of R 2.15.2&quot;            &quot;2.15.2&quot;
+## stats            &quot;Part of R 2.15.2&quot;            &quot;2.15.2&quot;
+## stats4           &quot;Part of R 2.15.2&quot;            &quot;2.15.2&quot;
+## survival         &quot;LGPL (&gt;= 2)&quot;                 &quot;2.15.2&quot;
+## tcltk            &quot;Part of R 2.15.2&quot;            &quot;2.15.2&quot;
+## tools            &quot;Part of R 2.15.2&quot;            &quot;2.15.2&quot;
+## utils            &quot;Part of R 2.15.2&quot;            &quot;2.15.2&quot;
+</code></pre>
+
+  </article>
+  <!-- Presenter Notes -->
+</slide>
+
+<slide class="" id="slide-24" style="background:;">
+  <hgroup>
+    <h2>Keep up to date</h2>
+  </hgroup>
+  <article data-timings="">
+    <pre><code class="r">update.packages()
+</code></pre>
+
+  </article>
+  <!-- Presenter Notes -->
+</slide>
+
+<slide class="" id="slide-25" style="background:;">
+  <hgroup>
+    <h2>Saving</h2>
+  </hgroup>
+  <article data-timings="">
+    <ol>
+<li>R source code</li>
+<li>Image</li>
+</ol>
+
+<pre><code class="r">save.image(&quot;example.Rdata&quot;)
+load.image(&quot;example.Rdata&quot;)
+</code></pre>
+
+  </article>
+  <!-- Presenter Notes -->
+</slide>
+
+<slide class="" id="slide-26" style="background:;">
+  <hgroup>
+    <h3>Exercise</h3>
+  </hgroup>
+  <article data-timings="">
+    <ol>
+<li>Install and load the package &quot;ggplot2&quot;</li>
+<li>Take a look on the help file</li>
+<li>Run at least one example</li>
+<li>Save the code and the image</li>
+</ol>
+
+  </article>
+  <!-- Presenter Notes -->
+</slide>
+
+<slide class="" id="slide-27" style="background:;">
+  <hgroup>
+    <h2>Run the examples is helpful</h2>
+  </hgroup>
+  <article data-timings="">
+    <h3>Exercise</h3>
+
+<ol>
+<li>Run the examples of the functions below</li>
+</ol>
+
+<pre><code class="r">example(ggplot)
+example(plot)
+example(hist)
+</code></pre>
+
+  </article>
+  <!-- Presenter Notes -->
+</slide>
+
+<slide class="segue dark quote" id="slide-28" style="background:;">
+  <article data-timings="">
+    <p><q class = 'yellow'> Get ready for reading help files, manuals, books, and using the
+web (Forums as well). These are extremely useful resources. Do not be
+lazy! </q></p>
+
+  </article>
+  <!-- Presenter Notes -->
+</slide>
+
+<slide class="" id="slide-29" style="background:;">
+  <hgroup>
+    <h2>Objects: Vectors</h2>
+  </hgroup>
+  <article data-timings="">
+    <pre><code class="r">c(1, 3, 5, 7)  # combine, not concatenate!
+</code></pre>
+
+<pre><code>## [1] 1 3 5 7
+</code></pre>
+
+<pre><code class="r">c(TRUE, FALSE, TRUE, TRUE)
+</code></pre>
+
+<pre><code>## [1]  TRUE FALSE  TRUE  TRUE
+</code></pre>
+
+<pre><code class="r">bb &lt;- c(100, &quot;Fisher&quot;, TRUE)
+bb
+</code></pre>
+
+<pre><code>## [1] &quot;100&quot;    &quot;Fisher&quot; &quot;TRUE&quot;
+</code></pre>
+
+  </article>
+  <!-- Presenter Notes -->
+</slide>
+
+<slide class="" id="slide-30" style="background:;">
+  <hgroup>
+    <h2>Vectors</h2>
+  </hgroup>
+  <article data-timings="">
+    <pre><code class="r">seq(1, 10)
+</code></pre>
+
+<pre><code>##  [1]  1  2  3  4  5  6  7  8  9 10
+</code></pre>
+
+<pre><code class="r">1:10  # will be useful later
+</code></pre>
+
+<pre><code>##  [1]  1  2  3  4  5  6  7  8  9 10
+</code></pre>
+
+  </article>
+  <!-- Presenter Notes -->
+</slide>
+
+<slide class="" id="slide-31" style="background:;">
+  <hgroup>
+    <h2>Indexing vectors</h2>
+  </hgroup>
+  <article data-timings="">
+    <pre><code class="r">x &lt;- seq(10, 100, by = 10)
+x
+</code></pre>
+
+<pre><code>##  [1]  10  20  30  40  50  60  70  80  90 100
+</code></pre>
+
+<pre><code class="r">x[4]  # one-based indexing
+</code></pre>
+
+<pre><code>## [1] 40
+</code></pre>
+
+<pre><code class="r">x[2] &lt;- -200
+x
+</code></pre>
+
+<pre><code>##  [1]   10 -200   30   40   50   60   70   80   90  100
+</code></pre>
+
+  </article>
+  <!-- Presenter Notes -->
+</slide>
+
+<slide class="" id="slide-32" style="background:;">
+  <hgroup>
+    <h2>Indexing vectors</h2>
+  </hgroup>
+  <article data-timings="">
+    <pre><code class="r">x
+</code></pre>
+
+<pre><code>##  [1]   10 -200   30   40   50   60   70   80   90  100
+</code></pre>
+
+<pre><code class="r">x[3:5]
+</code></pre>
+
+<pre><code>## [1] 30 40 50
+</code></pre>
+
+<pre><code class="r">x[c(3, 5)]  # mind the difference!
+</code></pre>
+
+<pre><code>## [1] 30 50
+</code></pre>
+
+  </article>
+  <!-- Presenter Notes -->
+</slide>
+
+<slide class="" id="slide-33" style="background:;">
+  <hgroup>
+    <h2>Naming vectors</h2>
+  </hgroup>
+  <article data-timings="">
+    <pre><code class="r">yield &lt;- c(150, 200, 225)
+names(yield) &lt;- c(&quot;Piracicaba&quot;, &quot;Franca&quot;, &quot;Alo Brasil&quot;)
+yield
+</code></pre>
+
+<pre><code>## Piracicaba     Franca Alo Brasil 
+##        150        200        225
+</code></pre>
+
+<pre><code class="r">yield[&quot;Alo Brasil&quot;]
+</code></pre>
+
+<pre><code>## Alo Brasil 
+##        225
+</code></pre>
+
+  </article>
+  <!-- Presenter Notes -->
+</slide>
+
+<slide class="" id="slide-34" style="background:;">
+  <hgroup>
+    <h2>Arithmetic Operations</h2>
+  </hgroup>
+  <article data-timings="">
+    <pre><code class="r">x &lt;- c(10, 20, 40, 80)
+x + 10
+</code></pre>
+
+<pre><code>## [1] 20 30 50 90
+</code></pre>
+
+<pre><code class="r">x * 2
+</code></pre>
+
+<pre><code>## [1]  20  40  80 160
+</code></pre>
+
+<pre><code class="r">y &lt;- c(0, -10, 5, -20)
+x + y
+</code></pre>
+
+<pre><code>## [1] 10 10 45 60
+</code></pre>
+
+  </article>
+  <!-- Presenter Notes -->
+</slide>
+
+<slide class="" id="slide-35" style="background:;">
+  <hgroup>
+    <h2>Arithmetic Operations</h2>
+  </hgroup>
+  <article data-timings="">
+    <pre><code class="r">x &lt;- c(5, 25, 30, 100, 0, -1, NA)
+log(x)
+</code></pre>
+
+<pre><code>## Warning: NaNs produzidos
+</code></pre>
+
+<pre><code>## [1] 1.609 3.219 3.401 4.605  -Inf   NaN    NA
+</code></pre>
+
+  </article>
+  <!-- Presenter Notes -->
+</slide>
+
+<slide class="" id="slide-36" style="background:;">
+  <hgroup>
+    <h2>Recycling</h2>
+  </hgroup>
+  <article data-timings="">
+    <ul>
+<li>Attention!</li>
+</ul>
+
+<pre><code class="r">a &lt;- c(1, 2, 3, 4)
+b &lt;- 1:3
+(c &lt;- a + b)
+</code></pre>
+
+<pre><code>## Warning: comprimento do objeto maior não é múltiplo do comprimento do
+## objeto menor
+</code></pre>
+
+<pre><code>## [1] 2 4 6 5
+</code></pre>
+
+  </article>
+  <!-- Presenter Notes -->
+</slide>
+
+<slide class="" id="slide-37" style="background:;">
+  <hgroup>
+    <h2>Summary Statistics</h2>
+  </hgroup>
+  <article data-timings="">
+    <pre><code class="r">d &lt;- c(10, 8, 12, 7, 6, 9, 8, 13, 10, 7)
+</code></pre>
+
+<pre><code class="r">mean(d)
+</code></pre>
+
+<pre><code>## [1] 9
+</code></pre>
+
+<pre><code class="r">median(d)
+</code></pre>
+
+<pre><code>## [1] 8.5
+</code></pre>
+
+  </article>
+  <!-- Presenter Notes -->
+</slide>
+
+<slide class="" id="slide-38" style="background:;">
+  <hgroup>
+    <h2>Summary Statistics</h2>
+  </hgroup>
+  <article data-timings="">
+    <pre><code class="r">sd(d)
+</code></pre>
+
+<pre><code>## [1] 2.261
+</code></pre>
+
+<pre><code class="r">var(d)
+</code></pre>
+
+<pre><code>## [1] 5.111
+</code></pre>
+
+  </article>
+  <!-- Presenter Notes -->
+</slide>
+
+<slide class="" id="slide-39" style="background:;">
+  <hgroup>
+    <h2>Remember, objects</h2>
+  </hgroup>
+  <article data-timings="">
+    <pre><code class="r">mode(yield)
+</code></pre>
+
+<pre><code>## [1] &quot;numeric&quot;
+</code></pre>
+
+<pre><code class="r">mode(bb)
+</code></pre>
+
+<pre><code>## [1] &quot;character&quot;
+</code></pre>
+
+<pre><code class="r">class(x)
+</code></pre>
+
+<pre><code>## [1] &quot;numeric&quot;
+</code></pre>
+
+<pre><code class="r">str(x)
+</code></pre>
+
+<pre><code>##  num [1:7] 5 25 30 100 0 -1 NA
+</code></pre>
+
+  </article>
+  <!-- Presenter Notes -->
+</slide>
+
+<slide class="" id="slide-40" style="background:;">
+  <hgroup>
+    <h3>Exercise</h3>
+  </hgroup>
+  <article data-timings="">
+    <ol>
+<li>Create an object (vector) with values 1, 2, 3, 4, 5</li>
+<li>Multiply it by 2, saving it in another object</li>
+<li>Explore the objects in RStudio</li>
+</ol>
+
+  </article>
+  <!-- Presenter Notes -->
+</slide>
+
+<slide class="" id="slide-41" style="background:;">
+  <hgroup>
+    <h2>Matrices</h2>
+  </hgroup>
+  <article data-timings="">
+    <p>&quot;Vectors with two-dimensions&quot;</p>
+
+<pre><code class="r">matrix(0, 2, 3)
+</code></pre>
+
+<pre><code>##      [,1] [,2] [,3]
+## [1,]    0    0    0
+## [2,]    0    0    0
+</code></pre>
+
+<pre><code class="r">x &lt;- 1:6
+(x &lt;- matrix(x, 2, 3))
+</code></pre>
+
+<pre><code>##      [,1] [,2] [,3]
+## [1,]    1    3    5
+## [2,]    2    4    6
+</code></pre>
+
+  </article>
+  <!-- Presenter Notes -->
+</slide>
+
+<slide class="" id="slide-42" style="background:;">
+  <hgroup>
+    <h2>Indexing elements is trivial</h2>
+  </hgroup>
+  <article data-timings="">
+    <pre><code class="r">x
+</code></pre>
+
+<pre><code>##      [,1] [,2] [,3]
+## [1,]    1    3    5
+## [2,]    2    4    6
+</code></pre>
+
+<pre><code class="r">dim(x)
+</code></pre>
+
+<pre><code>## [1] 2 3
+</code></pre>
+
+<pre><code class="r">x[1, 3]
+</code></pre>
+
+<pre><code>## [1] 5
+</code></pre>
+
+  </article>
+  <!-- Presenter Notes -->
+</slide>
+
+<slide class="" id="slide-43" style="background:;">
+  <article data-timings="">
+    <pre><code class="r">x[1, 3] &lt;- 10
+x
+</code></pre>
+
+<pre><code>##      [,1] [,2] [,3]
+## [1,]    1    3   10
+## [2,]    2    4    6
+</code></pre>
+
+<pre><code class="r">x[2, ]
+</code></pre>
+
+<pre><code>## [1] 2 4 6
+</code></pre>
+
+<pre><code class="r">x[, c(1, 3)]
+</code></pre>
+
+<pre><code>##      [,1] [,2]
+## [1,]    1   10
+## [2,]    2    6
+</code></pre>
+
+  </article>
+  <!-- Presenter Notes -->
+</slide>
+
+<slide class="" id="slide-44" style="background:;">
+  <hgroup>
+    <h2>Objects</h2>
+  </hgroup>
+  <article data-timings="">
+    <pre><code class="r">mode(x)
+</code></pre>
+
+<pre><code>## [1] &quot;numeric&quot;
+</code></pre>
+
+<pre><code class="r">class(x)
+</code></pre>
+
+<pre><code>## [1] &quot;matrix&quot;
+</code></pre>
+
+<pre><code class="r">str(x)
+</code></pre>
+
+<pre><code>##  num [1:2, 1:3] 1 2 3 4 10 6
+</code></pre>
+
+  </article>
+  <!-- Presenter Notes -->
+</slide>
+
+<slide class="" id="slide-45" style="background:;">
+  <hgroup>
+    <h3>Exercise</h3>
+  </hgroup>
+  <article data-timings="">
+    <ol>
+<li>Replace the element on row 2, column 2, in matrix x, by 999</li>
+</ol>
+
+  </article>
+  <!-- Presenter Notes -->
+</slide>
+
+<slide class="" id="slide-46" style="background:;">
+  <hgroup>
+    <h2>Matrix Algebra</h2>
+  </hgroup>
+  <article data-timings="">
+    <p>A little different from what one would expect</p>
+
+<pre><code class="r">(x &lt;- matrix(c(1, 2, 3, 4), 2, 2))
+</code></pre>
+
+<pre><code>##      [,1] [,2]
+## [1,]    1    3
+## [2,]    2    4
+</code></pre>
+
+<pre><code class="r">(y &lt;- matrix(c(10, 20, 30, 40), 2, 2))
+</code></pre>
+
+<pre><code>##      [,1] [,2]
+## [1,]   10   30
+## [2,]   20   40
+</code></pre>
+
+  </article>
+  <!-- Presenter Notes -->
+</slide>
+
+<slide class="" id="slide-47" style="background:;">
+  <article data-timings="">
+    <pre><code class="r">(x + y)
+</code></pre>
+
+<pre><code>##      [,1] [,2]
+## [1,]   11   33
+## [2,]   22   44
+</code></pre>
+
+<pre><code class="r">(x * y)  #elementwise
+</code></pre>
+
+<pre><code>##      [,1] [,2]
+## [1,]   10   90
+## [2,]   40  160
+</code></pre>
+
+<pre><code class="r">(x %*% y)  #matrix multiplication
+</code></pre>
+
+<pre><code>##      [,1] [,2]
+## [1,]   70  150
+## [2,]  100  220
+</code></pre>
+
+  </article>
+  <!-- Presenter Notes -->
+</slide>
+
+<slide class="" id="slide-48" style="background:;">
+  <hgroup>
+    <h2>Factors</h2>
+  </hgroup>
+  <article data-timings="">
+    <pre><code class="r">geno_calls &lt;- c(&quot;AA&quot;, &quot;aa&quot;, &quot;aa&quot;, &quot;Aa&quot;, &quot;AA&quot;, &quot;Aa&quot;)
+geno_calls
+</code></pre>
+
+<pre><code>## [1] &quot;AA&quot; &quot;aa&quot; &quot;aa&quot; &quot;Aa&quot; &quot;AA&quot; &quot;Aa&quot;
+</code></pre>
+
+<pre><code class="r">genotypes &lt;- factor(geno_calls)
+genotypes
+</code></pre>
+
+<pre><code>## [1] AA aa aa Aa AA Aa
+## Levels: aa Aa AA
+</code></pre>
+
+<pre><code class="r">levels(genotypes)
+</code></pre>
+
+<pre><code>## [1] &quot;aa&quot; &quot;Aa&quot; &quot;AA&quot;
+</code></pre>
+
+  </article>
+  <!-- Presenter Notes -->
+</slide>
+
+<slide class="" id="slide-49" style="background:;">
+  <article data-timings="">
+    <pre><code class="r">mode(genotypes)
+</code></pre>
+
+<pre><code>## [1] &quot;numeric&quot;
+</code></pre>
+
+<pre><code class="r">class(genotypes)
+</code></pre>
+
+<pre><code>## [1] &quot;factor&quot;
+</code></pre>
+
+<pre><code class="r">str(genotypes)
+</code></pre>
+
+<pre><code>##  Factor w/ 3 levels &quot;aa&quot;,&quot;Aa&quot;,&quot;AA&quot;: 3 1 1 2 3 2
+</code></pre>
+
+  </article>
+  <!-- Presenter Notes -->
+</slide>
+
+<slide class="" id="slide-50" style="background:;">
+  <hgroup>
+    <h2>Why factors?</h2>
+  </hgroup>
+  <article data-timings="">
+    <ul>
+<li>They play a central role in statistical analysis</li>
+</ul>
+
+<pre><code class="r">phenotypes &lt;- c(7, 4, 3, 7, 9, 8)
+model &lt;- lm(phenotypes ~ genotypes)
+model
+</code></pre>
+
+<pre><code>## 
+## Call:
+## lm(formula = phenotypes ~ genotypes)
+## 
+## Coefficients:
+## (Intercept)  genotypesAa  genotypesAA  
+##         3.5          4.0          4.5
+</code></pre>
+
+  </article>
+  <!-- Presenter Notes -->
+</slide>
+
+<slide class="" id="slide-51" style="background:;">
+  <article data-timings="">
+    <pre><code class="r">summary(model)
+</code></pre>
+
+<pre><code>## 
+## Call:
+## lm(formula = phenotypes ~ genotypes)
+## 
+## Residuals:
+##    1    2    3    4    5    6 
+## -1.0  0.5 -0.5 -0.5  1.0  0.5 
+## 
+## Coefficients:
+##             Estimate Std. Error t value Pr(&gt;|t|)
+## (Intercept)    3.500      0.707    4.95    0.016
+## genotypesAa    4.000      1.000    4.00    0.028
+## genotypesAA    4.500      1.000    4.50    0.020
+## 
+## Residual standard error: 1 on 3 degrees of freedom
+## Multiple R-squared:  0.89,   Adjusted R-squared:  0.817 
+## F-statistic: 12.2 on 2 and 3 DF,  p-value: 0.0364
+</code></pre>
+
+  </article>
+  <!-- Presenter Notes -->
+</slide>
+
+<slide class="" id="slide-52" style="background:;">
+  <article data-timings="">
+    <pre><code class="r">model &lt;- lm(phenotypes ~ as.numeric(genotypes))
+summary(model)
+</code></pre>
+
+<pre><code>## 
+## Call:
+## lm(formula = phenotypes ~ as.numeric(genotypes))
+## 
+## Residuals:
+##       1       2       3       4       5       6 
+## -1.5833 -0.0833 -1.0833  0.6667  0.4167  1.6667 
+## 
+## Coefficients:
+##                       Estimate Std. Error t value Pr(&gt;|t|)
+## (Intercept)              1.833      1.437    1.28    0.271
+## as.numeric(genotypes)    2.250      0.665    3.38    0.028
+## 
+## Residual standard error: 1.33 on 4 degrees of freedom
+## Multiple R-squared:  0.741,  Adjusted R-squared:  0.676 
+## F-statistic: 11.4 on 1 and 4 DF,  p-value: 0.0277
+</code></pre>
+
+  </article>
+  <!-- Presenter Notes -->
+</slide>
+
+<slide class="" id="slide-53" style="background:;">
+  <hgroup>
+    <h2>R is a vectorial language</h2>
+  </hgroup>
+  <article data-timings="">
+    <pre><code class="r">tapply(phenotypes, INDEX = genotypes, FUN = mean)
+</code></pre>
+
+<pre><code>##  aa  Aa  AA 
+## 3.5 7.5 8.0
+</code></pre>
+
+<h3>Exercise</h3>
+
+<ol>
+<li>When you have time, learn about the
+<a href="http://www.r-bloggers.com/using-apply-sapply-lapply-in-r/">apply family</a></li>
+</ol>
+
+  </article>
+  <!-- Presenter Notes -->
+</slide>
+
+<slide class="" id="slide-54" style="background:;">
+  <hgroup>
+    <h2>Reading data</h2>
+  </hgroup>
+  <article data-timings="">
+    <pre><code class="r">mouse &lt;- read.csv(&quot;mouse.csv&quot;)
+head(mouse)
+</code></pre>
+
+<pre><code>##   IND BW M1 M2 M3 M4 M5 M6 M7 M8 M9 M10 M11 M12 M13 M14
+## 1   1 50  1  1  1  1  1  1  1  1  1   1   1   1   1   1
+## 2   2 54  1  1  1  1  1  1  1  1  1   1   1   1   1   0
+## 3   3 49  0  1  1  1  1  1  1  1  1   1   1   1   1   1
+## 4   4 41  0  0  0  0  0  0  0  0  0   0   0   0   0   0
+## 5   5 36  1  1  1  1  1  1  1  1  1   1   1   1   1   1
+## 6   6 48  0  0  0  0  0  0  0  0  0   0   0   0   0   0
+</code></pre>
+
+  </article>
+  <!-- Presenter Notes -->
+</slide>
+
+<slide class="" id="slide-55" style="background:;">
+  <article data-timings="">
+    <pre><code class="r">tail(mouse)
+</code></pre>
+
+<pre><code>##     IND BW M1 M2 M3 M4 M5 M6 M7 M8 M9 M10 M11 M12 M13 M14
+## 98   98 56  0  0  0  0  0  0  0  0  0   0   0   0   0   0
+## 99   99 50  0  0  0  0  0  0  0  0  0   0   0   0   0   0
+## 100 100 45  1  1  1  1  0  0  0  0  0   0   0   0   0   0
+## 101 101 43  1  1  1  0  0  0  0  0  0   0   0   0   0   0
+## 102 102 37  0  0  0  0  0  0  0  0  0   0   0   0   0   1
+## 103 103 35  1  0  0  0  0  0  0  0  0   0   0   0   0   0
+</code></pre>
+
+  </article>
+  <!-- Presenter Notes -->
+</slide>
+
+<slide class="" id="slide-56" style="background:;">
+  <hgroup>
+    <h2>We can read from the web</h2>
+  </hgroup>
+  <article data-timings="">
+    <pre><code class="r">maize &lt;- read.csv(&quot;http://dl.dropbox.com/u/1968009/maize.csv&quot;)
+nba &lt;- read.csv(&quot;http://datasets.flowingdata.com/ppg2008.csv&quot;, sep = &quot;,&quot;)
+nba[1:3, ]
+</code></pre>
+
+<pre><code>##            Name  G  MIN  PTS  FGM  FGA   FGP FTM FTA   FTP X3PM X3PA  X3PP
+## 1  Dwyane Wade  79 38.6 30.2 10.8 22.0 0.491 7.5 9.8 0.765  1.1  3.5 0.317
+## 2 LeBron James  81 37.7 28.4  9.7 19.9 0.489 7.3 9.4 0.780  1.6  4.7 0.344
+## 3  Kobe Bryant  82 36.2 26.8  9.8 20.9 0.467 5.9 6.9 0.856  1.4  4.1 0.351
+##   ORB DRB TRB AST STL BLK  TO  PF
+## 1 1.1 3.9 5.0 7.5 2.2 1.3 3.4 2.3
+## 2 1.3 6.3 7.6 7.2 1.7 1.1 3.0 1.7
+## 3 1.1 4.1 5.2 4.9 1.5 0.5 2.6 2.3
+</code></pre>
+
+  </article>
+  <!-- Presenter Notes -->
+</slide>
+
+<slide class="" id="slide-57" style="background:;">
+  <hgroup>
+    <h2>Graphics</h2>
+  </hgroup>
+  <article data-timings="">
+    <pre><code class="r">x &lt;- seq(0, 20, 0.5)
+y &lt;- x^2
+plot(x, y)
+</code></pre>
+
+<p><img src="assets/fig/plot1.png" alt="plot of chunk plot1"> </p>
+
+  </article>
+  <!-- Presenter Notes -->
+</slide>
+
+<slide class="" id="slide-58" style="background:;">
+  <article data-timings="">
+    <pre><code class="r">hist(rnorm(500, 5, 25))
+</code></pre>
+
+<p><img src="assets/fig/plot2.png" alt="plot of chunk plot2"> </p>
+
+  </article>
+  <!-- Presenter Notes -->
+</slide>
+
+<slide class="" id="slide-59" style="background:;">
+  <hgroup>
+    <h2>Barplot</h2>
+  </hgroup>
+  <article data-timings="">
+    <pre><code class="r">barplot(yield)
+abline(h = mean(yield))
+</code></pre>
+
+<p><img src="assets/fig/plot3.png" alt="plot of chunk plot3"> </p>
+
+  </article>
+  <!-- Presenter Notes -->
+</slide>
+
+<slide class="" id="slide-60" style="background:;">
+  <hgroup>
+    <h2>How to customize</h2>
+  </hgroup>
+  <article data-timings="">
+    <pre><code class="r">x &lt;- rnorm(10)
+y &lt;- rnorm(10)
+plot(x, y)
+</code></pre>
+
+<p><img src="assets/fig/plotcustom.png" alt="plot of chunk plotcustom"> </p>
+
+  </article>
+  <!-- Presenter Notes -->
+</slide>
+
+<slide class="" id="slide-61" style="background:;">
+  <article data-timings="">
+    <pre><code class="r">plot(sort(x), sort(y), type = &quot;l&quot;)
+</code></pre>
+
+<p><img src="assets/fig/plotcustom1.png" alt="plot of chunk plotcustom1"> </p>
+
+  </article>
+  <!-- Presenter Notes -->
+</slide>
+
+<slide class="" id="slide-62" style="background:;">
+  <article data-timings="">
+    <pre><code class="r">plot(x, y, xlab = &quot;Ten random values&quot;, ylab = &quot;Ten other values&quot;, xlim = c(-2, 
+    2), ylim = c(-2, 2), pch = 22, col = &quot;red&quot;, bg = &quot;yellow&quot;, bty = &quot;l&quot;, tcl = 0.4, 
+    main = &quot;How to customize a plot with R&quot;, las = 1, cex = 1.5)
+</code></pre>
+
+<p><img src="assets/fig/plotcustom2.png" alt="plot of chunk plotcustom2"> </p>
+
+  </article>
+  <!-- Presenter Notes -->
+</slide>
+
+<slide class="" id="slide-63" style="background:;">
+  <hgroup>
+    <h3>Exercise</h3>
+  </hgroup>
+  <article data-timings="">
+    <ul>
+<li>Try the following:</li>
+</ul>
+
+<pre><code class="r">demo(graphics)
+</code></pre>
+
+<ul>
+<li>Read the codes to start learning a few things</li>
+</ul>
+
+  </article>
+  <!-- Presenter Notes -->
+</slide>
+
+<slide class="" id="slide-64" style="background:;">
+  <hgroup>
+    <h2><a href="http://ggplot2.org/">ggplot2</a>: An Amazing Package for Graphics</h2>
+  </hgroup>
+  <article data-timings="">
+    <pre><code class="r">m &lt;- ggplot(movies, aes(x = rating))
+m + geom_density()
+</code></pre>
+
+<p><img src="assets/fig/ggplot2.png" alt="plot of chunk ggplot2"> </p>
+
+  </article>
+  <!-- Presenter Notes -->
+</slide>
+
+<slide class="" id="slide-65" style="background:;">
+  <article data-timings="">
+    <pre><code class="r">qplot(rating, ..density.., data = movies, geom = &quot;density&quot;, fill = mpaa, position = &quot;stack&quot;)
+</code></pre>
+
+<p><img src="assets/fig/ggplot3.png" alt="plot of chunk ggplot3"> </p>
+
+  </article>
+  <!-- Presenter Notes -->
+</slide>
+
+<slide class="" id="slide-66" style="background:;">
+  <hgroup>
+    <h2>Heatmap</h2>
+  </hgroup>
+  <article data-timings="">
+    <pre><code class="r">library(BLR)
+data(wheat)
+dim(X)
+</code></pre>
+
+<pre><code>## [1]  599 1279
+</code></pre>
+
+<pre><code class="r">X[101:105, 1001:1005]
+</code></pre>
+
+<pre><code>##      c.348129 c.348141 c.348181 c.348186 c.348206
+## [1,]        1        1        0        1        1
+## [2,]        0        1        1        1        1
+## [3,]        0        1        1        0        1
+## [4,]        1        1        1        0        1
+## [5,]        0        0        1        1        1
+</code></pre>
+
+  </article>
+  <!-- Presenter Notes -->
+</slide>
+
+<slide class="" id="slide-67" style="background:;">
+  <article data-timings="">
+    <pre><code class="r">image(X, xlab = &quot;Lines&quot;, ylab = &quot;Markers&quot;)
+</code></pre>
+
+<p><img src="assets/fig/heatmap.png" alt="plot of chunk heatmap"> </p>
+
+  </article>
+  <!-- Presenter Notes -->
+</slide>
+
+<slide class="" id="slide-68" style="background:;">
+  <hgroup>
+    <h2>Programming - few essential concepts</h2>
+  </hgroup>
+  <article data-timings="">
+    <h3>Loops using &#39;for&#39;</h3>
+
+<pre><code class="r">iter &lt;- 0
+for (i in 1:50) {
+    iter &lt;- iter + 1
+}
+iter
+</code></pre>
+
+<pre><code>## [1] 50
+</code></pre>
+
+  </article>
+  <!-- Presenter Notes -->
+</slide>
+
+<slide class="" id="slide-69" style="background:;">
+  <hgroup>
+    <h3>Loops using &#39;while&#39;</h3>
+  </hgroup>
+  <article data-timings="">
+    <pre><code class="r">iter &lt;- 1
+while (iter &lt; 50) {
+    iter &lt;- iter + 1
+}
+iter
+</code></pre>
+
+<pre><code>## [1] 50
+</code></pre>
+
+  </article>
+  <!-- Presenter Notes -->
+</slide>
+
+<slide class="" id="slide-70" style="background:;">
+  <hgroup>
+    <h2>Allocating elements in for loops</h2>
+  </hgroup>
+  <article data-timings="">
+    <pre><code class="r">foo &lt;- rep(NA, 100)
+for (i in 1:100) {
+    foo[i] &lt;- sin(i)
+}
+</code></pre>
+
+<pre><code class="r">foo[1:20]
+</code></pre>
+
+<pre><code>##  [1]  0.8415  0.9093  0.1411 -0.7568 -0.9589 -0.2794  0.6570  0.9894
+##  [9]  0.4121 -0.5440 -1.0000 -0.5366  0.4202  0.9906  0.6503 -0.2879
+## [17] -0.9614 -0.7510  0.1499  0.9129
+</code></pre>
+
+  </article>
+  <!-- Presenter Notes -->
+</slide>
+
+<slide class="" id="slide-71" style="background:;">
+  <article data-timings="">
+    <pre><code class="r">plot(foo, type = &quot;l&quot;)
+</code></pre>
+
+<p><img src="assets/fig/loops5.png" alt="plot of chunk loops5"> </p>
+
+  </article>
+  <!-- Presenter Notes -->
+</slide>
+
+<slide class="" id="slide-72" style="background:;">
+  <hgroup>
+    <h2>Conditional statements - extremely important</h2>
+  </hgroup>
+  <article data-timings="">
+    <pre><code class="r">foo &lt;- rep(NA, 100)
+for (i in 1:100) {
+    if (i%%2 == 0) {
+        foo[i] &lt;- sin(i)
+    } else {
+        foo[i] &lt;- 3
+    }
+}
+</code></pre>
+
+  </article>
+  <!-- Presenter Notes -->
+</slide>
+
+<slide class="" id="slide-73" style="background:;">
+  <article data-timings="">
+    <pre><code class="r">plot(foo, type = &quot;b&quot;, col = c(&quot;green&quot;, &quot;red&quot;), pch = c(8, 20))
+</code></pre>
+
+<p><img src="assets/fig/if2.png" alt="plot of chunk if2"> </p>
+
+  </article>
+  <!-- Presenter Notes -->
+</slide>
+
+<slide class="" id="slide-74" style="background:;">
+  <hgroup>
+    <h2>These all be can be used in &#39;functions&#39;</h2>
+  </hgroup>
+  <article data-timings="">
+    <pre><code class="r">funny.plot &lt;- function(iterations) {
+    foo &lt;- rep(NA, iterations)
+    for (i in 1:iterations) {
+        if (i%%2 == 0) {
+            foo[i] &lt;- sin(i)
+        } else {
+            foo[i] &lt;- 3
+        }
+    }
+    plot(foo, type = &quot;b&quot;, col = c(&quot;green&quot;, &quot;red&quot;), pch = c(8, 20))
+}
+</code></pre>
+
+  </article>
+  <!-- Presenter Notes -->
+</slide>
+
+<slide class="" id="slide-75" style="background:;">
+  <hgroup>
+    <h3>Try different values for the argument</h3>
+  </hgroup>
+  <article data-timings="">
+    <pre><code class="r">funny.plot(50)
+</code></pre>
+
+<p><img src="assets/fig/function2.png" alt="plot of chunk function2"> </p>
+
+  </article>
+  <!-- Presenter Notes -->
+</slide>
+
+<slide class="" id="slide-76" style="background:;">
+  <hgroup>
+    <h2>References</h2>
+  </hgroup>
+  <article data-timings="">
+    <p><a href="http://cran.r-project.org/doc/contrib/Paradis-rdebuts_en.pdf">R for Beginners</a></p>
+
+<p><a href="http://alyssafrazee.com/introducing-R.html">Introducing R to a non-programmer in one hour</a></p>
+
+<p><a href="http://www.amazon.com/Art-Programming-Statistical-Software-Design-ebook/dp/B00683GXUO/ref=sr_1_fkmr0_1?s=books&amp;ie=UTF8&amp;qid=1392402825&amp;sr=1-1-fkmr0&amp;keywords=%EE%81%89e+Art+of+R+Programming">The Art of R Programming</a></p>
+
+<p><a href="http://www.amazon.com/Introductory-Statistics-R-Computing/dp/0387954759">Introductory Statistics with R</a></p>
+
+<p><a href="http://kbroman.github.io/knitr_knutshell/">knitr in a knutshell</a></p>
+
+<p><a href="http://www.amazon.com/gp/product/1482203537">Dynamic Documents with R and knitr</a></p>
+
+<p><a href="http://www.amazon.com/ggplot2-Elegant-Graphics-Data-Analysis-ebook/dp/B0041KLFRW/ref=sr_1_1?s=books&amp;ie=UTF8&amp;qid=1392402523&amp;sr=1-1&amp;keywords=ggplot2">ggplot2: Elegant Graphics for Data Analysis</a></p>
+
+  </article>
+  <!-- Presenter Notes -->
+</slide>
+
+    <slide class="backdrop"></slide>
+  </slides>
+  <div class="pagination pagination-small" id='io2012-ptoc' style="display:none;">
+    <ul>
+      <li>
+      <a href="#" target="_self" rel='tooltip' 
+        data-slide=1 title='Outline'>
+         1
+      </a>
+    </li>
+    <li>
+      <a href="#" target="_self" rel='tooltip' 
+        data-slide=2 title='R Learning Curve'>
+         2
+      </a>
+    </li>
+    <li>
+      <a href="#" target="_self" rel='tooltip' 
+        data-slide=3 title='Few concepts can make a big difference'>
+         3
+      </a>
+    </li>
+    <li>
+      <a href="#" target="_self" rel='tooltip' 
+        data-slide=4 title='R'>
+         4
+      </a>
+    </li>
+    <li>
+      <a href="#" target="_self" rel='tooltip' 
+        data-slide=5 title='But there is more!'>
+         5
+      </a>
+    </li>
+    <li>
+      <a href="#" target="_self" rel='tooltip' 
+        data-slide=6 title='... and more!'>
+         6
+      </a>
+    </li>
+    <li>
+      <a href="#" target="_self" rel='tooltip' 
+        data-slide=7 title='... and even more!'>
+         7
+      </a>
+    </li>
+    <li>
+      <a href="#" target="_self" rel='tooltip' 
+        data-slide=8 title='Exercise'>
+         8
+      </a>
+    </li>
+    <li>
+      <a href="#" target="_self" rel='tooltip' 
+        data-slide=9 title=''>
+         9
+      </a>
+    </li>
+    <li>
+      <a href="#" target="_self" rel='tooltip' 
+        data-slide=10 title='You can write reports on R'>
+         10
+      </a>
+    </li>
+    <li>
+      <a href="#" target="_self" rel='tooltip' 
+        data-slide=11 title='For reproducibility:'>
+         11
+      </a>
+    </li>
+    <li>
+      <a href="#" target="_self" rel='tooltip' 
+        data-slide=12 title=''>
+         12
+      </a>
+    </li>
+    <li>
+      <a href="#" target="_self" rel='tooltip' 
+        data-slide=13 title='R syntax'>
+         13
+      </a>
+    </li>
+    <li>
+      <a href="#" target="_self" rel='tooltip' 
+        data-slide=14 title='Variables'>
+         14
+      </a>
+    </li>
+    <li>
+      <a href="#" target="_self" rel='tooltip' 
+        data-slide=15 title='Functions'>
+         15
+      </a>
+    </li>
+    <li>
+      <a href="#" target="_self" rel='tooltip' 
+        data-slide=16 title='Exercise'>
+         16
+      </a>
+    </li>
+    <li>
+      <a href="#" target="_self" rel='tooltip' 
+        data-slide=17 title='Help!'>
+         17
+      </a>
+    </li>
+    <li>
+      <a href="#" target="_self" rel='tooltip' 
+        data-slide=18 title='RSeek'>
+         18
+      </a>
+    </li>
+    <li>
+      <a href="#" target="_self" rel='tooltip' 
+        data-slide=19 title='Exercise'>
+         19
+      </a>
+    </li>
+    <li>
+      <a href="#" target="_self" rel='tooltip' 
+        data-slide=20 title='Install and load packages'>
+         20
+      </a>
+    </li>
+    <li>
+      <a href="#" target="_self" rel='tooltip' 
+        data-slide=21 title='More help'>
+         21
+      </a>
+    </li>
+    <li>
+      <a href="#" target="_self" rel='tooltip' 
+        data-slide=22 title='SOS!'>
+         22
+      </a>
+    </li>
+    <li>
+      <a href="#" target="_self" rel='tooltip' 
+        data-slide=23 title='Packages on your computer'>
+         23
+      </a>
+    </li>
+    <li>
+      <a href="#" target="_self" rel='tooltip' 
+        data-slide=24 title='Keep up to date'>
+         24
+      </a>
+    </li>
+    <li>
+      <a href="#" target="_self" rel='tooltip' 
+        data-slide=25 title='Saving'>
+         25
+      </a>
+    </li>
+    <li>
+      <a href="#" target="_self" rel='tooltip' 
+        data-slide=26 title='Exercise'>
+         26
+      </a>
+    </li>
+    <li>
+      <a href="#" target="_self" rel='tooltip' 
+        data-slide=27 title='Run the examples is helpful'>
+         27
+      </a>
+    </li>
+    <li>
+      <a href="#" target="_self" rel='tooltip' 
+        data-slide=28 title=''>
+         28
+      </a>
+    </li>
+    <li>
+      <a href="#" target="_self" rel='tooltip' 
+        data-slide=29 title='Objects: Vectors'>
+         29
+      </a>
+    </li>
+    <li>
+      <a href="#" target="_self" rel='tooltip' 
+        data-slide=30 title='Vectors'>
+         30
+      </a>
+    </li>
+    <li>
+      <a href="#" target="_self" rel='tooltip' 
+        data-slide=31 title='Indexing vectors'>
+         31
+      </a>
+    </li>
+    <li>
+      <a href="#" target="_self" rel='tooltip' 
+        data-slide=32 title='Indexing vectors'>
+         32
+      </a>
+    </li>
+    <li>
+      <a href="#" target="_self" rel='tooltip' 
+        data-slide=33 title='Naming vectors'>
+         33
+      </a>
+    </li>
+    <li>
+      <a href="#" target="_self" rel='tooltip' 
+        data-slide=34 title='Arithmetic Operations'>
+         34
+      </a>
+    </li>
+    <li>
+      <a href="#" target="_self" rel='tooltip' 
+        data-slide=35 title='Arithmetic Operations'>
+         35
+      </a>
+    </li>
+    <li>
+      <a href="#" target="_self" rel='tooltip' 
+        data-slide=36 title='Recycling'>
+         36
+      </a>
+    </li>
+    <li>
+      <a href="#" target="_self" rel='tooltip' 
+        data-slide=37 title='Summary Statistics'>
+         37
+      </a>
+    </li>
+    <li>
+      <a href="#" target="_self" rel='tooltip' 
+        data-slide=38 title='Summary Statistics'>
+         38
+      </a>
+    </li>
+    <li>
+      <a href="#" target="_self" rel='tooltip' 
+        data-slide=39 title='Remember, objects'>
+         39
+      </a>
+    </li>
+    <li>
+      <a href="#" target="_self" rel='tooltip' 
+        data-slide=40 title='Exercise'>
+         40
+      </a>
+    </li>
+    <li>
+      <a href="#" target="_self" rel='tooltip' 
+        data-slide=41 title='Matrices'>
+         41
+      </a>
+    </li>
+    <li>
+      <a href="#" target="_self" rel='tooltip' 
+        data-slide=42 title='Indexing elements is trivial'>
+         42
+      </a>
+    </li>
+    <li>
+      <a href="#" target="_self" rel='tooltip' 
+        data-slide=43 title=''>
+         43
+      </a>
+    </li>
+    <li>
+      <a href="#" target="_self" rel='tooltip' 
+        data-slide=44 title='Objects'>
+         44
+      </a>
+    </li>
+    <li>
+      <a href="#" target="_self" rel='tooltip' 
+        data-slide=45 title='Exercise'>
+         45
+      </a>
+    </li>
+    <li>
+      <a href="#" target="_self" rel='tooltip' 
+        data-slide=46 title='Matrix Algebra'>
+         46
+      </a>
+    </li>
+    <li>
+      <a href="#" target="_self" rel='tooltip' 
+        data-slide=47 title=''>
+         47
+      </a>
+    </li>
+    <li>
+      <a href="#" target="_self" rel='tooltip' 
+        data-slide=48 title='Factors'>
+         48
+      </a>
+    </li>
+    <li>
+      <a href="#" target="_self" rel='tooltip' 
+        data-slide=49 title=''>
+         49
+      </a>
+    </li>
+    <li>
+      <a href="#" target="_self" rel='tooltip' 
+        data-slide=50 title='Why factors?'>
+         50
+      </a>
+    </li>
+    <li>
+      <a href="#" target="_self" rel='tooltip' 
+        data-slide=51 title=''>
+         51
+      </a>
+    </li>
+    <li>
+      <a href="#" target="_self" rel='tooltip' 
+        data-slide=52 title=''>
+         52
+      </a>
+    </li>
+    <li>
+      <a href="#" target="_self" rel='tooltip' 
+        data-slide=53 title='R is a vectorial language'>
+         53
+      </a>
+    </li>
+    <li>
+      <a href="#" target="_self" rel='tooltip' 
+        data-slide=54 title='Reading data'>
+         54
+      </a>
+    </li>
+    <li>
+      <a href="#" target="_self" rel='tooltip' 
+        data-slide=55 title=''>
+         55
+      </a>
+    </li>
+    <li>
+      <a href="#" target="_self" rel='tooltip' 
+        data-slide=56 title='We can read from the web'>
+         56
+      </a>
+    </li>
+    <li>
+      <a href="#" target="_self" rel='tooltip' 
+        data-slide=57 title='Graphics'>
+         57
+      </a>
+    </li>
+    <li>
+      <a href="#" target="_self" rel='tooltip' 
+        data-slide=58 title=''>
+         58
+      </a>
+    </li>
+    <li>
+      <a href="#" target="_self" rel='tooltip' 
+        data-slide=59 title='Barplot'>
+         59
+      </a>
+    </li>
+    <li>
+      <a href="#" target="_self" rel='tooltip' 
+        data-slide=60 title='How to customize'>
+         60
+      </a>
+    </li>
+    <li>
+      <a href="#" target="_self" rel='tooltip' 
+        data-slide=61 title=''>
+         61
+      </a>
+    </li>
+    <li>
+      <a href="#" target="_self" rel='tooltip' 
+        data-slide=62 title=''>
+         62
+      </a>
+    </li>
+    <li>
+      <a href="#" target="_self" rel='tooltip' 
+        data-slide=63 title='Exercise'>
+         63
+      </a>
+    </li>
+    <li>
+      <a href="#" target="_self" rel='tooltip' 
+        data-slide=64 title='<a href="http://ggplot2.org/">ggplot2</a>: An Amazing Package for Graphics'>
+         64
+      </a>
+    </li>
+    <li>
+      <a href="#" target="_self" rel='tooltip' 
+        data-slide=65 title=''>
+         65
+      </a>
+    </li>
+    <li>
+      <a href="#" target="_self" rel='tooltip' 
+        data-slide=66 title='Heatmap'>
+         66
+      </a>
+    </li>
+    <li>
+      <a href="#" target="_self" rel='tooltip' 
+        data-slide=67 title=''>
+         67
+      </a>
+    </li>
+    <li>
+      <a href="#" target="_self" rel='tooltip' 
+        data-slide=68 title='Programming - few essential concepts'>
+         68
+      </a>
+    </li>
+    <li>
+      <a href="#" target="_self" rel='tooltip' 
+        data-slide=69 title='Loops using &#39;while&#39;'>
+         69
+      </a>
+    </li>
+    <li>
+      <a href="#" target="_self" rel='tooltip' 
+        data-slide=70 title='Allocating elements in for loops'>
+         70
+      </a>
+    </li>
+    <li>
+      <a href="#" target="_self" rel='tooltip' 
+        data-slide=71 title=''>
+         71
+      </a>
+    </li>
+    <li>
+      <a href="#" target="_self" rel='tooltip' 
+        data-slide=72 title='Conditional statements - extremely important'>
+         72
+      </a>
+    </li>
+    <li>
+      <a href="#" target="_self" rel='tooltip' 
+        data-slide=73 title=''>
+         73
+      </a>
+    </li>
+    <li>
+      <a href="#" target="_self" rel='tooltip' 
+        data-slide=74 title='These all be can be used in &#39;functions&#39;'>
+         74
+      </a>
+    </li>
+    <li>
+      <a href="#" target="_self" rel='tooltip' 
+        data-slide=75 title='Try different values for the argument'>
+         75
+      </a>
+    </li>
+    <li>
+      <a href="#" target="_self" rel='tooltip' 
+        data-slide=76 title='References'>
+         76
+      </a>
+    </li>
+  </ul>
+  </div>  <!--[if IE]>
+    <script 
+      src="http://ajax.googleapis.com/ajax/libs/chrome-frame/1/CFInstall.min.js">  
+    </script>
+    <script>CFInstall.check({mode: 'overlay'});</script>
+  <![endif]-->
+</body>
+  <!-- Load Javascripts for Widgets -->
+  
+  <!-- MathJax: Fall back to local if CDN offline but local image fonts are not supported (saves >100MB) -->
+  <script type="text/x-mathjax-config">
+    MathJax.Hub.Config({
+      tex2jax: {
+        inlineMath: [['$','$'], ['\\(','\\)']],
+        processEscapes: true
+      }
+    });
+  </script>
+  <script type="text/javascript" src="http://cdn.mathjax.org/mathjax/2.0-latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+  <!-- <script src="https://c328740.ssl.cf1.rackcdn.com/mathjax/2.0-latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML">
+  </script> -->
+  <script>window.MathJax || document.write('<script type="text/x-mathjax-config">MathJax.Hub.Config({"HTML-CSS":{imageFont:null}});<\/script><script src="libraries/widgets/mathjax/MathJax.js?config=TeX-AMS-MML_HTMLorMML"><\/script>')
+</script>
+<!-- LOAD HIGHLIGHTER JS FILES -->
+  <script src="libraries/highlighters/highlight.js/highlight.pack.js"></script>
+  <script>hljs.initHighlightingOnLoad();</script>
+  <!-- DONE LOADING HIGHLIGHTER JS FILES -->
+   
+  </html>

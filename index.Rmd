@@ -1,0 +1,801 @@
+---
+title       : Introduction to R
+subtitle    : A primer
+author      : Antonio Augusto Franco Garcia, Gabriel R. A. Margarido
+job         : Department of Genetics, ESALQ/USP
+framework   : io2012        # {io2012, html5slides, shower, dzslides, ...}
+highlighter : highlight.js  # {highlight.js, prettify, highlight}
+hitheme     : tomorrow      # 
+widgets     : [mathjax]            # {mathjax, quiz, bootstrap}
+mode        : selfcontained # {standalone, draft}
+---
+
+## Outline
+
+1. Introduction
+2. Basic Syntax
+3. Object Types
+4. Graphics
+5. Programming
+
+
+    Antonio Augusto F. Garcia
+
+    http://about.me/augusto.garcia
+
+    augusto.garcia@usp.br
+
+--- .class #id 
+
+## R Learning Curve
+
+![Learning](/home/augusto/Dropbox/Talks/2014\ USP\ Ribeirao\ Preto/augusto/figures/learning-curve.jpg)
+
+---
+
+## Few concepts can make a big difference
+
+<iframe width="560" height="315" src="http://www.youtube.com/embed/5pidokakU4I" frameborder="0" allowfullscreen></iframe>
+
+---
+
+## R
+
+ + Statistics
+ + Modeling
+ + Graphics
+ + Programming language
+ + Free
+ + Open Source
+ + Extensible
+ + DATA
+ + "Lingua franca" of Statistics (Bioinformatics?)
+ 
+  [R Project:](http://www.r-project.org) http://www.r-project.org
+
+  [RStudio:](http://www.rstudio.com) http://www.rstudio.com
+
+---
+
+## But there is more!
+
+http://www.foastat.org/
+
+![FOAS](/home/augusto/Dropbox/Talks/2014\ USP\ Ribeirao\ Preto/augusto/figures/FOAS.jpg)
+
+---
+
+## ... and more!
+
+http://yihui.name/knitr/
+
+![knitr](/home/augusto/Dropbox/Talks/2014\ USP\ Ribeirao\ Preto/augusto/figures/knitrBook.jpg)
+
+---
+
+## ... and even more!
+
+These very slides were produced using an R package: [slidify](http://slidify.org/)
+
+<iframe width="420" height="315" src="http://www.youtube.com/embed/I95GOmLc7TA" frameborder="0" allowfullscreen></iframe>
+
+---
+
+### Exercise
+
+1. Install [R](http://www.r-project.org)
+2. Install [RStudio](http://www.rstudio.com)
+3. Take a look on the interface, trying to see where you are
+4. Use R as a calculator:
+   ```{r rcalc}
+   10
+   1 + 3
+   ```
+
+---
+
+   ```{r rcalc2}
+   4 / 3
+   4 %% 3 # modulo operator
+   ```
+---
+
+## You can write reports on R
+
+    Syntax: straightforward
+
+### Exercise
+
+1. Download the file [report](www.google.com). It uses
+       [R Markdown](http://www.rstudio.com/ide/docs/r_markdown)
+       syntax.
+2. Open it on RStudio
+3. Take a look on it, finding headers, lists (numbered, or items), and
+   R chunks
+4. Try to add a few comments and R chunks
+5. Compile it to produce an html report
+6. (This is making usage of the amazing package [knitr](http://yihui.name/knitr/))
+7. Use it for taking notes during this course
+
+---
+
+## For reproducibility:
+
+```{r sessionInfo, include=TRUE, echo=TRUE, results='markup'}
+sessionInfo()
+```
+
+--- .segue .dark .quote
+
+<q class = 'yellow'> Reproducible research is a very important
+concept. Not only in order to allow others to reproduce and understand
+what you did, but also to allow others to extend your research.
+Programs with 'point and click' menus are not in line with this
+concept.</q>
+
+---
+
+## R syntax
+
+```{r rsyntax1}
+10 > 2
+(3 * 2) == 5   # caution: '==' is different than '='
+```
+
+```{r syntax2}
+"Hello, world"
+```
+
+---
+
+## Variables
+
+```{r syntax3}
+a <- 100
+a
+a * 8
+a <- 20
+a <- "New string"
+a
+```
+
+---
+
+## Functions
+
+```{r functions}
+log(100)
+log10(100)
+sequence(5)
+seq(from = 0, to = 1, by = 0.2)
+```
+
+---
+
+### Exercise
+
+1. Compute the square root of all numbers from 7 to 1458.
+2. Compute the square root of all even numbers from 7 to 1458.
+
+```{r answer1, include=FALSE}
+sqrt(seq(from=7,to=1458))
+sqrt(seq(from=8,to=1458,by=2))
+```
+
+---
+
+## Help!
+
+```{r help}
+help(seq)
+?seq
+help.search("histogram")
+```
+
+### Exercise
+
+1. Find help about the function plot()
+
+---
+
+## RSeek
+
+http://www.rseek.org/
+
+![rseek](/home/augusto/Dropbox/Talks/2014\ USP\ Ribeirao\ Preto/augusto/figures/RSeek.jpg)
+
+---
+
+### Exercise
+
+1. Find R packages for "linkage mapping"
+2. Find R packages for "QTL mapping"
+3. "Genomic selection"
+4. ... (your choice)
+
+---
+
+## Install and load packages
+
++ Repositories: your choice, but closer is better
+
+```{r install, eval=FALSE, echo=TRUE}
+install.packages()
+```
+
+```{r install2, eval=FALSE, echo=TRUE}
+install.packages("fortunes")
+```
+
+```{r loading}
+library("fortunes")
+fortune()
+```
+
+---
+
+## More help
+
+```{r sos, echo=TRUE, eval=FALSE}
+install.packages("sos")
+```
+
+```{r sos2}
+library("sos")
+findFn('qtl')
+```
+
+---
+
+## SOS!
+  
+```{r sos3}
+findFn('metabolomic')
+findFn('qtl mapping metabolomic')
+```
+
+---
+
+## Packages on your computer
+
+```{r packages}
+installed.packages()
+```
+
+---
+
+## Keep up to date
+
+```{r update, eval=FALSE, echo=TRUE}
+update.packages()
+```
+
+---
+
+## Saving
+
+1. R source code
+2. Image
+```{r saving, eval=FALSE, echo=TRUE}
+save.image("example.Rdata")
+load.image("example.Rdata")
+```
+
+---
+
+### Exercise
+
+1. Install and load the package "ggplot2"
+2. Take a look on the help file
+3. Run at least one example
+4. Save the code and the image
+
+---
+
+## Run the examples is helpful
+
+### Exercise
+
+1. Run the examples of the functions below
+
+```{r ggplot1, eval=FALSE, echo=TRUE}
+example(ggplot)
+example(plot)
+example(hist)
+```
+
+--- .segue .dark .quote
+
+<q class = 'yellow'> Get ready for reading help files, manuals, books, and using the
+web (Forums as well). These are extremely useful resources. Do not be
+lazy! </q>
+
+---
+
+## Objects: Vectors
+
+```{r vector1}
+c(1, 3, 5, 7)  # combine, not concatenate!
+c(TRUE, FALSE, TRUE, TRUE)
+bb <- c(100, "Fisher", TRUE)
+bb
+```
+
+---
+
+## Vectors
+
+```{r vector2}
+seq(1,10)
+1:10           # will be useful later
+```
+
+---
+
+## Indexing vectors
+
+```{r vector3}
+x <- seq(10, 100, by = 10)
+x
+x[4]           # one-based indexing
+x[2] <- -200
+x
+```
+
+---
+
+## Indexing vectors
+
+```{r vector4}
+x
+x[3:5]
+x[c(3, 5)]     # mind the difference!
+```
+
+---
+
+## Naming vectors
+
+```{r vector5}
+yield <- c(150, 200, 225)
+names(yield) <- c("Piracicaba", "Franca", "Alo Brasil")
+yield
+yield["Alo Brasil"]
+```
+
+---
+
+## Arithmetic Operations
+
+```{r vector6}
+x <- c(10, 20, 40, 80)
+x + 10
+x * 2
+y <- c(0, -10, 5, -20)
+x + y
+```
+
+---
+
+## Arithmetic Operations
+
+```{r vector7}
+x <- c(5, 25, 30, 100, 0, -1, NA)
+log(x)
+```
+
+---
+
+## Recycling
+
++ Attention!
+
+```{r vector8}
+a <- c(1,2,3,4)
+b <- 1:3
+(c <- a + b)
+```
+
+---
+
+## Summary Statistics
+
+```{r vector9}
+d <- c(10,8,12,7,6,9,8,13,10,7)
+```
+
+```{r vector10}
+mean(d)
+median(d)
+```
+
+---
+
+## Summary Statistics
+
+```{r vector11}
+sd(d)
+var(d)
+```
+
+---
+
+## Remember, objects
+
+```{r vector12}
+mode(yield)
+mode(bb)
+class(x)
+str(x)
+```
+
+---
+
+### Exercise
+
+1. Create an object (vector) with values 1, 2, 3, 4, 5
+2. Multiply it by 2, saving it in another object
+3. Explore the objects in RStudio
+
+
+---
+
+## Matrices
+
+"Vectors with two-dimensions"
+
+```{r matrix1}
+matrix(0, 2, 3)
+x <- 1:6
+(x <- matrix(x, 2, 3))
+```
+
+---
+
+## Indexing elements is trivial
+
+```{r matrix2}
+x
+dim(x)
+x[1, 3]
+```
+
+---
+
+```{r matrix3}
+x[1, 3] <- 10
+x
+x[2, ]
+x[, c(1, 3)]
+```
+
+---
+
+## Objects
+```{r matrix31}
+mode(x)
+class(x)
+str(x)
+```
+
+---
+
+### Exercise
+
+1. Replace the element on row 2, column 2, in matrix x, by 999
+
+---
+
+## Matrix Algebra
+
+A little different from what one would expect
+
+```{r matrix4}
+(x <- matrix(c(1,2,3,4),2,2))
+(y <- matrix(c(10,20,30,40),2,2))
+```
+
+---
+
+```{r matrix5}
+(x + y)
+(x * y) #elementwise
+(x %*% y) #matrix multiplication
+```
+
+
+---
+
+
+## Factors
+
+```{r factor1}
+geno_calls <- c("AA", "aa", "aa", "Aa", "AA", "Aa")
+geno_calls
+genotypes <- factor(geno_calls)
+genotypes
+levels(genotypes)
+```
+
+---
+
+```{r factor2}
+mode(genotypes)
+class(genotypes)
+str(genotypes)
+```
+
+---
+
+## Why factors?
+
++ They play a central role in statistical analysis
+
+```{r factor3}
+phenotypes <- c(7,4,3,7,9,8)
+model <- lm(phenotypes ~ genotypes)
+model
+```
+
+---
+
+```{r factor4}
+summary(model)
+```
+
+---
+
+```{r factor5}
+model <- lm(phenotypes ~ as.numeric(genotypes))
+summary(model)
+```
+
+---
+
+## R is a vectorial language
+
+```{r factor6}
+tapply(phenotypes, INDEX = genotypes, FUN = mean)
+```
+
+### Exercise
+
+1. When you have time, learn about the
+   [apply family](http://www.r-bloggers.com/using-apply-sapply-lapply-in-r/)
+
+---
+
+## Reading data
+
+```{r readData}
+mouse <- read.csv("mouse.csv")
+head(mouse)
+```
+
+---
+
+```{r readData1}
+tail(mouse)
+```
+
+---
+
+## We can read from the web
+
+```{r readData2}
+maize <- read.csv("http://dl.dropbox.com/u/1968009/maize.csv")
+nba <- read.csv("http://datasets.flowingdata.com/ppg2008.csv", sep = ",")
+nba[1:3,]
+```
+
+---
+
+## Graphics
+
+```{r plot1}
+x <- seq(0, 20, 0.5); y <- x^2
+plot(x,y)
+```
+
+---
+
+```{r plot2}
+hist(rnorm(500,5,25))
+```
+
+---
+
+## Barplot
+
+```{r plot3}
+barplot(yield)
+abline(h = mean(yield))
+```
+
+---
+
+## How to customize
+
+```{r plotcustom}
+x <- rnorm(10)
+y <- rnorm(10)
+plot(x, y)
+```
+
+---
+
+```{r plotcustom1}
+plot(sort(x), sort(y), type="l")
+```
+
+---
+
+```{r plotcustom2}
+plot(x, y, xlab="Ten random values", ylab="Ten other values",
+  xlim=c(-2, 2), ylim=c(-2, 2), pch=22, col="red",
+  bg="yellow", bty="l", tcl=0.4,
+  main="How to customize a plot with R", las=1, cex=1.5)
+```
+
+---
+
+### Exercise
+
++ Try the following:
+
+```{r plotdemo, eval=FALSE, echo=TRUE}
+demo(graphics)
+```
+
++ Read the codes to start learning a few things
+
+---
+
+## [ggplot2](http://ggplot2.org/): An Amazing Package for Graphics
+
+```{r ggplot2}
+m <- ggplot(movies, aes(x = rating))
+m + geom_density()
+```
+
+---
+
+```{r ggplot3}
+qplot(rating, ..density.., data=movies, geom="density", fill=mpaa, position="stack")
+```
+
+
+---
+
+## Heatmap
+
+```{r installBLR, eval=FALSE, echo=FALSE}
+install.packages("BLR")
+```
+
+```{r r2g2}
+library(BLR)
+data(wheat)
+dim(X)
+X[101:105, 1001:1005]
+```
+
+---
+
+```{r heatmap}
+image(X, xlab="Lines", ylab="Markers")
+```
+
+
+---
+
+## Programming - few essential concepts
+
+### Loops using 'for'
+
+```{r loops1}
+iter <- 0
+for (i in 1:50){
+  iter <- iter + 1
+}
+iter
+```
+
+---
+
+### Loops using 'while'
+
+```{r loops2}
+iter <- 1
+while (iter < 50){
+  iter <- iter +1
+}
+iter
+```
+
+---
+
+## Allocating elements in for loops
+
+```{r loops3}
+foo <- rep(NA, 100)
+for (i in 1:100){
+  foo[i] <- sin(i)
+}
+```
+```{r loops4}
+foo[1:20]
+```
+
+---
+
+```{r loops5}
+plot(foo, type="l")
+```
+
+---
+
+## Conditional statements - extremely important
+
+```{r if1}
+foo <- rep(NA, 100)
+for (i in 1:100){
+  if (i%%2==0) {
+    foo[i] <- sin(i)
+  }
+  else {
+    foo[i] <- 3
+  }
+}
+```
+
+---
+
+```{r if2}
+plot(foo, type="b",col=c("green","red"),pch=c(8,20))
+```
+
+---
+
+## These all be can be used in 'functions'
+
+```{r function1}
+funny.plot <- function(iterations){
+  foo <- rep(NA, iterations)
+  for (i in 1:iterations){
+    if (i%%2==0) {
+      foo[i] <- sin(i)
+    }
+    else {
+      foo[i] <- 3
+    }
+  }
+plot(foo, type="b",col=c("green","red"),pch=c(8,20))
+}
+```
+
+---
+
+### Try different values for the argument
+
+```{r function2}
+funny.plot(50)
+```
+
+---
+
+## References
+
+[R for Beginners](http://cran.r-project.org/doc/contrib/Paradis-rdebuts_en.pdf)
+
+[Introducing R to a non-programmer in one hour](http://alyssafrazee.com/introducing-R.html)
+
+[The Art of R Programming](http://www.amazon.com/Art-Programming-Statistical-Software-Design-ebook/dp/B00683GXUO/ref=sr_1_fkmr0_1?s=books&ie=UTF8&qid=1392402825&sr=1-1-fkmr0&keywords=%EE%81%89e+Art+of+R+Programming)
+
+[Introductory Statistics with R](http://www.amazon.com/Introductory-Statistics-R-Computing/dp/0387954759)
+
+[knitr in a knutshell](http://kbroman.github.io/knitr_knutshell/)
+
+[Dynamic Documents with R and knitr](http://www.amazon.com/gp/product/1482203537)
+
+[ggplot2: Elegant Graphics for Data Analysis](http://www.amazon.com/ggplot2-Elegant-Graphics-Data-Analysis-ebook/dp/B0041KLFRW/ref=sr_1_1?s=books&ie=UTF8&qid=1392402523&sr=1-1&keywords=ggplot2)

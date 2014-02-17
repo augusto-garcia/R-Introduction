@@ -1,0 +1,41 @@
+## An example knitr/R Markdown document
+
+This is a very simple and introductory example about producing a full _html_ report using R Markdown and package knitr. _Italics_ and **bold** can be used as well.
+
+### Introduction
+
+The syntax is very obvious. Heads and identation can be achieved just controling the number of "#" caracters.
+
+R codes need to be within chunks. Every chunk starts and ends with the syntax indicated below. It is recommended to given each chunk its own name (they cannot have the same name), but this is optional. There is a bottom to insert chunks (see the green icon on the right top), in case you are lazy.
+
+There are a number of options that can be used on chunks. This are out of the scope of this course. For now, just notice that you can use this document to take notes about what you are learning.
+
+```{r MyFirstChunk}
+10
+```
+
+To run the code within a given chunk, just hit CRTL+ENTER.
+
+Operations:
+
+```{r AnotherChunk}
+1 + 3
+```
+
+Objects:
+
+```{r}
+a <- 100
+```
+
+You can also use inline comments. For example, the object _a_ has value `r a`.
+
+Equations: you don't want to type this in Word, unless you don't value your time... Here, the syntax is also easy to understand. For example, a linear model for regression is $y_{i}=\mu+\beta x_{i}+e_{i}$.
+
+### R and package versions used
+
+It is a good idea to include this function in the end of your reports. This is important to achieve _**reproducibility**_.
+
+```{r sessionInfo, include=TRUE, echo=TRUE, results='markup'}
+sessionInfo()
+```
