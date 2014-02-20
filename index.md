@@ -21,12 +21,13 @@ github:
 4. Graphics
 5. Programming
 
-
+<!---
     Antonio Augusto F. Garcia
 
     http://about.me/augusto.garcia
 
     augusto.garcia@usp.br
+-->
 
 --- .class #id 
 
@@ -131,11 +132,11 @@ These very slides were produced using an R package: [slidify](http://slidify.org
 
 ## You can write reports on R
 
-    Syntax: straightforward
++ Syntax: straightforward
 
 ### Exercise
 
-1. Download the file [report](www.google.com). It uses
+1. Download the file [knitr_example.Rmd](https://github.com/augusto-garcia/R-Introduction/blob/gh-pages/knitr_example.Rmd). It uses
        [R Markdown](http://www.rstudio.com/ide/docs/r_markdown)
        syntax.
 2. Open it on RStudio
